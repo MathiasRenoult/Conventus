@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2021-05-13" view-index="0" gantt-divider-location="371" resource-divider-location="300" version="2.8.11" locale="fr">
+    <description/>
+    <view zooming-state="default:2" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="127" order="0"/>
+        <field id="tpd4" name="Date de début" width="45" order="1"/>
+        <field id="tpd5" name="Date de fin" width="180" order="2"/>
+        <option id="taskLabelUp" value="name"/>
+        <option id="taskLabelDown" value=""/>
+        <option id="taskLabelLeft" value="id"/>
+        <option id="color.recent"><![CDATA[#cccc00 #99cc00 #0099ff #ff99ff #ff6666 #f4f4f4]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nom" width="210" order="0"/>
+        <field id="1" name="Rôle par défaut" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="268" name="Analyse" color="#ff99ff" meeting="false" start="2021-05-03" duration="4" complete="0" thirdDate="2021-05-03" thirdDate-constraint="0" expand="true">
+            <task id="276" name="Création de la planification initiale" color="#ff99ff" meeting="false" start="2021-05-03" duration="1" complete="0" thirdDate="2021-04-27" thirdDate-constraint="0" expand="true"/>
+            <task id="277" name="Créer le Git, le projet Unity, le journal de bord, le rapport" color="#ff99ff" meeting="false" start="2021-05-03" duration="1" complete="0" thirdDate="2021-05-03" thirdDate-constraint="0" expand="true"/>
+            <task id="278" name="Recherche d'informations sur le sujet" color="#ff99ff" meeting="false" start="2021-05-04" duration="1" complete="0" thirdDate="2021-05-04" thirdDate-constraint="0" expand="true"/>
+            <task id="279" name="Maquettes de l'app" color="#ff99ff" meeting="false" start="2021-05-04" duration="1" complete="0" thirdDate="2021-05-04" thirdDate-constraint="0" expand="true"/>
+            <task id="280" name="Choix des conventions de nommage et architecteur du code" color="#ff99ff" meeting="false" start="2021-05-04" duration="1" complete="0" thirdDate="2021-05-06" thirdDate-constraint="0" expand="true"/>
+            <task id="281" name="Début du rapport" color="#cccc00" meeting="false" start="2021-05-06" duration="1" complete="0" thirdDate="2021-05-06" thirdDate-constraint="0" expand="true"/>
+            <task id="282" name="Analyse du code d'applications similaires" color="#ff99ff" meeting="false" start="2021-05-06" duration="1" complete="0" thirdDate="2021-05-06" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="283" name="Conception" color="#0099ff" meeting="false" start="2021-05-10" duration="2" complete="0" thirdDate="2021-05-10" thirdDate-constraint="0" expand="true">
+            <task id="284" name="Diagramme de flux sur les parties les plus critiques de l'app" color="#0099ff" meeting="false" start="2021-05-10" duration="2" complete="0" thirdDate="2021-05-10" thirdDate-constraint="0" expand="true"/>
+            <task id="285" name="Choix de la technologie de sauvegarde de fichier" color="#0099ff" meeting="false" start="2021-05-11" duration="1" complete="0" thirdDate="2021-05-11" thirdDate-constraint="0" expand="true"/>
+            <task id="286" name="Finalisation du dossier de l'analyse et du dossier de conception dans le rapport" color="#cccc00" meeting="false" start="2021-05-11" duration="1" complete="0" thirdDate="2021-05-11" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="242" name="Implémentation" color="#99cc00" meeting="false" start="2021-05-17" duration="9" complete="0" thirdDate="2021-05-17" thirdDate-constraint="0" expand="true">
+            <task id="258" name="Création de l'interface de base" color="#99cc00" meeting="false" start="2021-05-17" duration="1" complete="0" thirdDate="2021-05-17" thirdDate-constraint="0" expand="true"/>
+            <task id="259" name="Recherche des ressources (images et sons)" color="#99cc00" meeting="false" start="2021-05-17" duration="1" complete="0" thirdDate="2021-05-17" thirdDate-constraint="0" expand="true"/>
+            <task id="260" name="Création des managers et des classes &quot;de base&quot;" color="#99cc00" meeting="false" start="2021-05-17" duration="1" complete="0" thirdDate="2021-05-17" thirdDate-constraint="0" expand="true"/>
+            <task id="261" name="Création des managers et classes &quot;de base&quot;" color="#99cc00" meeting="false" start="2021-05-18" duration="1" complete="0" thirdDate="2021-05-18" thirdDate-constraint="0" expand="true"/>
+            <task id="262" name="Codage des &quot;câbles&quot; qui relient les éléments" color="#99cc00" meeting="false" start="2021-05-18" duration="1" complete="0" thirdDate="2021-05-18" thirdDate-constraint="0" expand="true"/>
+            <task id="263" name="Codage des portes logiques de base" color="#99cc00" meeting="false" start="2021-05-18" duration="1" complete="0" thirdDate="2021-05-18" thirdDate-constraint="0" expand="true"/>
+            <task id="264" name="Fonctionnalité &quot;simulation&quot; du circuit" color="#99cc00" meeting="false" start="2021-05-20" duration="2" complete="0" thirdDate="2021-05-20" thirdDate-constraint="0" expand="true"/>
+            <task id="265" name="Affichage des états des portes et des câbles" color="#99cc00" meeting="false" start="2021-05-21" duration="1" complete="0" thirdDate="2021-05-21" thirdDate-constraint="0" expand="true"/>
+            <task id="266" name="Enregistrement des fichiers" color="#99cc00" meeting="false" start="2021-05-25" duration="1" complete="0" thirdDate="2021-05-25" thirdDate-constraint="0" expand="true"/>
+            <task id="267" name="Exportation de fichiers image" color="#99cc00" meeting="false" start="2021-05-25" duration="3" complete="0" thirdDate="2021-05-25" thirdDate-constraint="0" expand="true"/>
+        </task>
+        <task id="287" name="Tests et Finalisation" color="#cccc00" shape="1,0,1,0,0,1,0,1,1,0,1,0,0,1,0,1" meeting="false" start="2021-05-28" duration="6" complete="0" thirdDate="2021-05-28" thirdDate-constraint="0" expand="true">
+            <task id="288" name="Session de tests approfondie" color="#ff6666" meeting="false" start="2021-05-28" duration="1" complete="0" thirdDate="2021-05-28" thirdDate-constraint="0" expand="true"/>
+            <task id="289" name="Session de test approfondie" color="#ff6666" meeting="false" start="2021-05-31" duration="1" complete="0" thirdDate="2021-05-31" thirdDate-constraint="0" expand="true"/>
+            <task id="290" name="Terminer le rapport" color="#cccc00" meeting="false" start="2021-05-31" duration="2" complete="0" thirdDate="2021-05-31" thirdDate-constraint="0" expand="true"/>
+            <task id="291" name="Correction du rapport, enjolivage, manuel utilisateur" color="#cccc00" meeting="false" start="2021-06-03" duration="1" complete="0" thirdDate="2021-06-03" thirdDate-constraint="0" expand="true"/>
+            <task id="292" name="Rendu final TPI" color="#cccc00" meeting="false" start="2021-06-04" duration="1" complete="0" thirdDate="2021-06-04" thirdDate-constraint="0" expand="true">
+                <notes><![CDATA[À 11h25, 2 copies papier rendues à Mr. Viret / Mr. Altieri et la version électronique envoyée à Mr. Viret et aux experts.]]></notes>
+            </task>
+        </task>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
+</project>
