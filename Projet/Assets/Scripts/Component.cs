@@ -6,25 +6,37 @@ using UnityEditor;
 public class Component : MonoBehaviour
 {
     public enum Type {Buffer, NOT, AND, OR, XOR, NAND, NOR, XNOR, Custom, Unset};
-    public List<IO> inputs = new List<IO>();
-    public List<IO> outputs = new List<IO>();
-    public SpriteRenderer renderer;
+    public List<IO> ios = new List<IO>();
+    public SpriteRenderer shapeRenderer;
     public string boolExpression;
+    public string compName;
+    public Color color = Color.cyan;
     public int[] truthTable;
     public bool truthTableDone = false;
     public Type type = Type.Unset;
     public bool held;
     public Vector2 heldPoint;
-    BoxCollider2D compCollider;
+    public BoxCollider2D compCollider;
 
     private void Start()
     {
-        
+        SetCompGraphics((int)type);
+        SetCorrectGateType((int)type);
     }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.U))
         {
+            UpdateCompGraphics();
+        }
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            SetCorrectGateType((int)type + 1);
+            UpdateCompGraphics();
+        }
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            SetCorrectGateType((int)type - 1);
             UpdateCompGraphics();
         }
     }
@@ -38,8 +50,21 @@ public class Component : MonoBehaviour
         {
             transform.position = pos - heldPoint; 
         }
-    }
 
+        AppManager.singleton.UpdateWires();
+
+        SetGateProperties();
+    }
+    Vector2 CountInputsOutputs()
+    {
+        int inputCount = 0;
+        int outputCount = 0;
+        foreach(IO i in ios)
+        {
+            if(i.input) inputCount++; else outputCount++;
+        }
+        return new Vector2(inputCount, outputCount);
+    }
     float RoundToNearest(float n, float x) 
     {
         return Mathf.Round(n / x) * x;
@@ -49,33 +74,11 @@ public class Component : MonoBehaviour
     {
 
     }
+
     public void UpdateState()
     {
-        if(type == Type.Custom)
-        {
-            if(truthTableDone)
-            {
-                
-            }
-            else
-            {
-                ComputeTruthTable();
-            }
-        }
-        else
-        {
-            switch(type)
-            {
-                case Type.Buffer : outputs[0].state = inputs[0].state; break;
-                case Type.NOT : outputs[0].state = !inputs[0].state; break;
-                case Type.AND : outputs[0].state = inputs[0].state && inputs[1].state; break;
-                case Type.NAND : outputs[0].state = !(inputs[0].state && inputs[1].state); break;
-                case Type.OR : outputs[0].state = inputs[0].state || inputs[1].state; break;
-                case Type.NOR : outputs[0].state = !(inputs[0].state || inputs[1].state); break;
-                case Type.XOR : outputs[0].state = inputs[0].state != inputs[1].state; break;
-                case Type.XNOR : outputs[0].state = (inputs[0].state == inputs[1].state); break;
-            }
-        }
+        if(type == Type.Unset)
+            return;      
     }
 
     public void UpdateCompGraphics()
@@ -84,14 +87,80 @@ public class Component : MonoBehaviour
     } 
     public void SetCompGraphics(int index)
     {
-        print(index);
-        if(AppManager.singleton.ansi)
+        if(type != Type.Custom && type != Type.Unset)
         {
-            renderer.sprite = ComponentsGraphicManager.singleton.spritesANSI[index];
+            switch(ComponentsGraphicManager.singleton.standard)
+            {
+                case ComponentsGraphicManager.LogicGatesStandard.ANSI:
+                    shapeRenderer.sprite = ComponentsGraphicManager.singleton.spritesANSI[index%8];
+                break;
+                case ComponentsGraphicManager.LogicGatesStandard.IEC: 
+                    shapeRenderer.sprite = ComponentsGraphicManager.singleton.spritesIEC[index%8];
+                break;
+                case ComponentsGraphicManager.LogicGatesStandard.DIN:
+                    shapeRenderer.sprite = ComponentsGraphicManager.singleton.spritesDIN[index%8];
+                break;
+            }
         }
         else
         {
-            renderer.sprite = ComponentsGraphicManager.singleton.spritesIEC[index];
+            shapeRenderer.sprite = ComponentsGraphicManager.singleton.defaultComponent;
         }
+    }
+
+    public void SetCorrectGateType(int index)
+    {
+        switch(index%8)
+        {
+            case 0: type = Type.Buffer; break;
+            case 1: type = Type.NOT; break;
+            case 2: type = Type.AND; break;
+            case 3: type = Type.OR; break;
+            case 4: type = Type.XOR; break;
+            case 5: type = Type.NAND; break;
+            case 6: type = Type.NOR; break;
+            case 7: type = Type.XNOR; break;
+        }
+
+        if(type == Type.Buffer || type == Type.NOT)
+        {
+            ios.Add(new IO(true, false, Vector2.zero, this, null));
+            ios.Add(new IO(false, false, Vector2.zero, this, null));
+        }
+        else
+        {
+            ios.Add(new IO(true, false, Vector2.zero, this, null));
+            ios.Add(new IO(true, false, Vector2.zero, this, null));
+            ios.Add(new IO(false, false, Vector2.zero, this, null));
+        }
+        SetGateProperties();
+    }
+
+    public void SetGateProperties()
+    {
+        Vector2 S = shapeRenderer.sprite.bounds.size;
+        gameObject.GetComponent<BoxCollider2D>().size = S;
+        compCollider = GetComponent<BoxCollider2D>();
+
+        Vector2 inputsOutputs = CountInputsOutputs();
+
+        int inIndex = 0;
+        int outIndex = 0;
+
+        foreach(IO i in ios)
+        {
+            if(i.input)
+            {
+               i.pos = new Vector2(transform.position.x - compCollider.bounds.size.x/2, transform.position.y - compCollider.bounds.size.y/2 + (compCollider.bounds.size.y/(inputsOutputs.x + 1))*(inIndex+1));
+               inIndex++;
+            }
+            else
+            {
+                i.pos = new Vector2(transform.position.x + compCollider.bounds.size.x/2, transform.position.y - compCollider.bounds.size.y/2 + (compCollider.bounds.size.y/(inputsOutputs.y + 1))*(outIndex+1));
+                outIndex++;
+            }    
+        }
+        
+        compName = type.ToString();
     }
 }
