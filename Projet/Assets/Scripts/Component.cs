@@ -124,14 +124,14 @@ public class Component : MonoBehaviour
 
         if(type == Type.Buffer || type == Type.NOT)
         {
-            ios.Add(new IO(true, false, Vector2.zero, this, null));
-            ios.Add(new IO(false, false, Vector2.zero, this, null));
+            ios.Add(new IO(true, false, Vector2.zero, null));
+            ios.Add(new IO(false, false, Vector2.zero, null));
         }
         else
         {
-            ios.Add(new IO(true, false, Vector2.zero, this, null));
-            ios.Add(new IO(true, false, Vector2.zero, this, null));
-            ios.Add(new IO(false, false, Vector2.zero, this, null));
+            ios.Add(new IO(true, false, Vector2.zero, null));
+            ios.Add(new IO(true, false, Vector2.zero, null));
+            ios.Add(new IO(false, false, Vector2.zero, null));
         }
         SetGateProperties();
     }

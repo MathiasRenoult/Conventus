@@ -48,11 +48,14 @@ public class WireTool : MonoBehaviour
 
         if(currentIO != null)
         {
+            UpdateWiring();
+
             if(Input.GetMouseButtonDown(0))
             {
                 StartWiring();
             }
         }
+
         if(wiring)
         {
             UpdateWiring();
@@ -75,7 +78,7 @@ public class WireTool : MonoBehaviour
     public void StopWiring()
     {
         wiring = false;
-        if(currentIO != null && currentIO != startIO)
+        if(currentIO != null && currentIO != startIO && currentIO.input != startIO.input)
         {
            currentWire.end = currentIO;
            currentWire.start = startIO;
@@ -90,6 +93,6 @@ public class WireTool : MonoBehaviour
 
     public void UpdateWiring()
     {
-        currentWire.SetPositions(startIO.pos, mousePos);
+        if(startIO != null && currentWire != null && mousePos != null) currentWire.SetPositions(startIO.pos, mousePos);
     }
 }

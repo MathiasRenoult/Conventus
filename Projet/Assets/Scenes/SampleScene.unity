@@ -2298,18 +2298,16 @@ MonoBehaviour:
     input: 0
     state: 0
     pos: {x: 0, y: 0}
-    component: {fileID: 0}
   currentIO:
     input: 0
     state: 0
     pos: {x: 0, y: 0}
-    component: {fileID: 0}
   currentWire: {fileID: 0}
   wiring: 0
   onColor: {r: 0.054378804, g: 0.8867924, b: 0.08036613, a: 1}
   offColor: {r: 0.8301887, g: 0.043075833, b: 0.043075833, a: 1}
   timeToProgress: 5
-  sensitivity: 28.51
+  sensitivity: 13.1
 --- !u!1 &1860044469
 GameObject:
   m_ObjectHideFlags: 0

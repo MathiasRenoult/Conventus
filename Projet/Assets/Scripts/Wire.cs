@@ -32,6 +32,12 @@ public class Wire : MonoBehaviour
         wire.endColor = state == true ? WireTool.singleton.onColor : WireTool.singleton.offColor;
     }
 
+    public void SetColors(Color start, Color end)
+    {
+        this.wire.startColor = start;
+        this.wire.endColor = end;
+    }
+
     public void UpdatePositions()
     {
         SetPositions(start.pos, end.pos);

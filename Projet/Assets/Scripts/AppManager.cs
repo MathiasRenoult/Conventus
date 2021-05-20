@@ -66,6 +66,14 @@ public class AppManager : MonoBehaviour
         foreach(Wire w in wires)
         {
             w.UpdatePositions();
+            if(w.start == WireTool.singleton.currentIO || w.end == WireTool.singleton.currentIO)
+            {
+                w.SetColors(Color.red, Color.red);
+            }
+            else
+            {
+                w.SetColors(Color.white, Color.white);
+            }
         }
     }
     public Component CreateComponent(Component.Type type)
