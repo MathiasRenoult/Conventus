@@ -9,8 +9,17 @@ public class AppManager : MonoBehaviour
     public List<Component> components = new List<Component>();
     public List<Component> selectedComponents = new List<Component>();
     public List<Wire> wires = new List<Wire>();
-    public List<IO> inputs = new List<IO>();
-    public List<IO> outputs = new List<IO>();
+    [SerializeField]
+    public GameObject inputOutputPrefab;
+    public GameObject leftContainer;
+    public Transform leftBorderTransform;
+    public List<CanvasIO> inputs = new List<CanvasIO>();
+    public bool leftBorder; // true if pointer is on the left border
+    [SerializeField]
+    public GameObject rightContainer;
+    public Transform rightBorderTransform;
+    public List<CanvasIO> outputs = new List<CanvasIO>();
+    public bool rightBorder; // true if pointer is on right border
     public bool leftShift;
     void Awake()
     {
@@ -20,16 +29,16 @@ public class AppManager : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            leftShift = false;
+        }
+
         if(Input.anyKey)
         {
             if(Input.GetKeyDown(KeyCode.LeftShift))
             {
                 leftShift = true;
-            }
-
-            if(Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                leftShift = false;
             }
 
             if(Input.GetKeyDown(KeyCode.H))
@@ -47,33 +56,37 @@ public class AppManager : MonoBehaviour
                 }
             }
         }
-
-
     }
-    public void FullResresh()
+    public void SetOnOffLeftBorder()
     {
-        
+        leftBorder = !leftBorder;
     }
-    public void UpdateComponents()
+    public void SetOnOffRightBorder()
     {
-        foreach(Component c in components)
+        rightBorder = !rightBorder;
+    }
+    public void AddInput()
+    {
+        CanvasIO newInput = Instantiate(inputOutputPrefab, leftBorderTransform).GetComponent<CanvasIO>();
+        inputs.Add(newInput);
+        int index = 0;
+        foreach(CanvasIO c in inputs)
         {
-            
+            c.transform.position = new Vector2(leftBorderTransform.transform.position.x, leftBorderTransform.position.y - (leftBorderTransform.GetComponent<RectTransform>().rect.size.y/2) + (leftBorderTransform.GetComponent<RectTransform>().rect.size.y/(inputs.Count + 1))*(index+1));
+            c.io.pos = new Vector2(leftBorderTransform.transform.position.x + newInput.GetComponent<RectTransform>().rect.width/2, leftBorderTransform.position.y - (leftBorderTransform.GetComponent<RectTransform>().rect.size.y/2) + (leftBorderTransform.GetComponent<RectTransform>().rect.size.y/(inputs.Count + 1))*(index+1));
+            index++;
         }
     }
+    public void DeleteInput()
+    {
+
+    }
+
     public void UpdateWires()
     {
         foreach(Wire w in wires)
         {
             w.UpdatePositions();
-            if(w.start == WireTool.singleton.currentIO || w.end == WireTool.singleton.currentIO)
-            {
-                w.SetColors(Color.red, Color.red);
-            }
-            else
-            {
-                w.SetColors(Color.white, Color.white);
-            }
         }
     }
     public Component CreateComponent(Component.Type type)

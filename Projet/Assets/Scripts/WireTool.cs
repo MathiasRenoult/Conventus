@@ -25,6 +25,7 @@ public class WireTool : MonoBehaviour
     {
         mousePos = SelectionManager.singleton.mousePos;
         UpdateDotPosAndState();
+        UpdateColors();
     }
 
     void UpdateDotPosAndState()
@@ -45,14 +46,39 @@ public class WireTool : MonoBehaviour
                 }
             }
         }
+        foreach(CanvasIO c in AppManager.singleton.inputs)
+        {
+            if((c.io.pos - mousePos).magnitude < sensitivity)
+            {
+                selectDot.gameObject.SetActive(true);
+                selectDot.transform.position = c.io.pos;
+                currentIO = c.io;
+                currentPointPos = c.io.pos;
+            }
+        }
+        foreach(CanvasIO c in AppManager.singleton.outputs)
+        {
+            if((c.io.pos - mousePos).magnitude < sensitivity)
+            {
+                selectDot.gameObject.SetActive(true);
+                selectDot.transform.position = c.io.pos;
+                currentIO = c.io;
+                currentPointPos = c.io.pos;
+            }
+        }
 
         if(currentIO != null)
         {
-            UpdateWiring();
-
             if(Input.GetMouseButtonDown(0))
             {
-                StartWiring();
+                if(AppManager.singleton.leftShift)
+                {
+                    DestroyWires(currentIO);
+                }
+                else
+                {
+                    StartWiring(); 
+                }
             }
         }
 
@@ -94,5 +120,57 @@ public class WireTool : MonoBehaviour
     public void UpdateWiring()
     {
         if(startIO != null && currentWire != null && mousePos != null) currentWire.SetPositions(startIO.pos, mousePos);
+    }
+    public void DestroyWires(IO io)
+    {
+        List<Wire> wires = new List<Wire>();
+        foreach(Wire w in AppManager.singleton.wires)
+        {
+            if(w.start == io || w.end == io)
+            {
+                wires.Add(w);
+            }
+        }
+        DestroyWires(wires.ToArray());
+    }
+    public void DestroyWires(Wire[] wires)
+    {
+        foreach(Wire w in wires)
+        {
+            DestroyWire(w);
+        }
+    }
+    public void DestroyWire(Wire wire)
+    {
+        AppManager.singleton.wires.Remove(wire);
+        Destroy(wire.gameObject);
+    }
+
+    public void UpdateColors()
+    {
+        if(currentIO == null)
+        {
+            foreach(Wire w in AppManager.singleton.wires)
+            {
+                w.SetColors(Color.white, Color.white);
+            }
+        }
+        else
+        {
+            foreach(Wire w in AppManager.singleton.wires)
+            {
+                if(w.end == currentIO || w.start == currentIO)
+                {
+                    w.SetColors(Color.red, Color.red);
+                    w.wire.sortingOrder = 10;
+                }
+                else
+                {
+                    w.SetColors(new Color(1f,1f,1f,0.3f), new Color(1f,1f,1f,0.3f));
+                    w.wire.sortingOrder = 0;
+                }
+            }
+        }
+        
     }
 }
