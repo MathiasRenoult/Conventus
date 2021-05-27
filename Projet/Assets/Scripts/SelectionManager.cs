@@ -46,6 +46,7 @@ public class SelectionManager : MonoBehaviour
                     AppManager.singleton.DeselectAllSelectedComponents();
                     if(onTrash)
                     {
+                        c.FlushComponent();
                         Destroy(c.gameObject);
                         print("Destroyed !");
                     }

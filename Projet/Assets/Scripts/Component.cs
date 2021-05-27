@@ -124,14 +124,14 @@ public class Component : MonoBehaviour
 
         if(type == Type.Buffer || type == Type.NOT)
         {
-            ios.Add(new IO(true, false, Vector2.zero, null));
-            ios.Add(new IO(false, false, Vector2.zero, null));
+            ios.Add(new IO(true, false, Vector2.zero, new List<IO>(), this));
+            ios.Add(new IO(false, false, Vector2.zero, new List<IO>(), this));
         }
         else
         {
-            ios.Add(new IO(true, false, Vector2.zero, null));
-            ios.Add(new IO(true, false, Vector2.zero, null));
-            ios.Add(new IO(false, false, Vector2.zero, null));
+            ios.Add(new IO(true, false, Vector2.zero, new List<IO>(), this));
+            ios.Add(new IO(true, false, Vector2.zero, new List<IO>(), this));
+            ios.Add(new IO(false, false, Vector2.zero, new List<IO>(), this));
         }
         SetGateProperties();
     }
@@ -162,5 +162,54 @@ public class Component : MonoBehaviour
         }
         
         compName = type.ToString();
+    }
+
+    public void ComputeOutputStates()
+    {
+        List<IO> inputs = new List<IO>();
+        List<IO> outputs = new List<IO>();
+        foreach(IO i in ios)
+        {
+            if(i.input)
+            {
+                inputs.Add(i);
+            }
+            else
+            {
+                outputs.Add(i);
+            }
+        }
+
+        if(type != Type.Custom)
+        {
+            switch(type)
+            {
+                case Type.Buffer : outputs[0].state = inputs[0].state; break;
+                case Type.NOT : outputs[0].state = !inputs[0].state; break;
+                case Type.AND : outputs[0].state = inputs[0].state && inputs[1].state; break;
+                case Type.OR : outputs[0].state = inputs[0].state || inputs[1].state; break;
+                case Type.XOR : outputs[0].state = inputs[0].state != inputs[1].state ? true : false; break;
+                case Type.NAND : outputs[0].state = !(inputs[0].state && inputs[1].state); break;
+                case Type.NOR : outputs[0].state = !(inputs[0].state || inputs[1].state); break;
+                case Type.XNOR : outputs[0].state = inputs[0].state == inputs[1].state ? true : false; break;
+            }
+        }
+        else
+        {
+            print("Not implemanted yet !");
+        }
+    }
+
+    public void FlushComponent()
+    {
+        List<Wire> toDestroy = new List<Wire>();
+        foreach(Wire w in AppManager.singleton.wires)
+        {
+            if(w.start.component == this || w.end.component == this)
+            {
+                toDestroy.Add(w);
+            }
+        }
+        WireTool.singleton.DestroyWires(toDestroy.ToArray());
     }
 }

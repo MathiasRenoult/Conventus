@@ -44,9 +44,10 @@
      <Compile Include="Assets\Scripts\Wire.cs" />
      <Compile Include="Assets\Scripts\ComponentButtonManager.cs" />
      <Compile Include="Assets\Scripts\Component.cs" />
+     <Compile Include="Assets\Scripts\CanvasIO.cs" />
      <Compile Include="Assets\Scripts\SelectionManager.cs" />
      <Compile Include="Assets\Scripts\IO.cs" />
-     <Compile Include="Assets\Scripts\CanvasIO.cs" />
+     <Compile Include="Assets\Scripts\Simulation.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

@@ -19,6 +19,11 @@ public class ComponentButton : MonoBehaviour
             spriteRenderer = GetComponent<UnityEngine.UI.Image>();
         }
     }
+
+    void Start()
+    {
+        SetText(linkedComponent.type.ToString());
+    }
     public void SetText(string text)
     {
         this.text.text = text;

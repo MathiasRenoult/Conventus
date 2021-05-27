@@ -106,6 +106,9 @@ public class WireTool : MonoBehaviour
         wiring = false;
         if(currentIO != null && currentIO != startIO && currentIO.input != startIO.input)
         {
+            startIO.linkedIOS.Add(currentIO);
+            currentIO.linkedIOS.Add(startIO);
+
            currentWire.end = currentIO;
            currentWire.start = startIO;
            currentWire.UpdatePositions();
@@ -142,35 +145,53 @@ public class WireTool : MonoBehaviour
     }
     public void DestroyWire(Wire wire)
     {
+        wire.end.linkedIOS.Remove(wire.start);
+        wire.start.linkedIOS.Remove(wire.end);
         AppManager.singleton.wires.Remove(wire);
         Destroy(wire.gameObject);
     }
 
     public void UpdateColors()
     {
-        if(currentIO == null)
+        if(Simulation.singleton.simulating)
         {
             foreach(Wire w in AppManager.singleton.wires)
             {
-                w.SetColors(Color.white, Color.white);
+                if(!w.start.input)
+                {
+                    w.SetState(w.start.state);
+                }
+                else
+                {
+                    w.SetState(w.end.state);
+                }  
             }
         }
         else
         {
-            foreach(Wire w in AppManager.singleton.wires)
+            if(currentIO == null)
             {
-                if(w.end == currentIO || w.start == currentIO)
+                foreach(Wire w in AppManager.singleton.wires)
                 {
-                    w.SetColors(Color.red, Color.red);
-                    w.wire.sortingOrder = 10;
+                    w.SetColors(Color.white, Color.white);
                 }
-                else
+            }
+            else
+            {
+                foreach(Wire w in AppManager.singleton.wires)
                 {
-                    w.SetColors(new Color(1f,1f,1f,0.3f), new Color(1f,1f,1f,0.3f));
-                    w.wire.sortingOrder = 0;
+                    if(w.end == currentIO || w.start == currentIO)
+                    {
+                        w.SetColors(Color.red, Color.red);
+                        w.wire.sortingOrder = 10;
+                    }
+                    else
+                    {
+                        w.SetColors(new Color(1f,1f,1f,0.3f), new Color(1f,1f,1f,0.3f));
+                        w.wire.sortingOrder = 0;
+                    }
                 }
             }
         }
-        
     }
 }

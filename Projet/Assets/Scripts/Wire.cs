@@ -28,8 +28,16 @@ public class Wire : MonoBehaviour
     public void SetState(bool state, float progression = 100f)
     {
         this.state = state;
-        wire.startColor = state == true ? WireTool.singleton.onColor : WireTool.singleton.offColor;
-        wire.endColor = state == true ? WireTool.singleton.onColor : WireTool.singleton.offColor;
+        if(Simulation.singleton.simulating)
+        {
+            wire.startColor = state == true ? WireTool.singleton.onColor : WireTool.singleton.offColor;
+            wire.endColor = state == true ? WireTool.singleton.onColor : WireTool.singleton.offColor;
+        }
+        else
+        {
+            wire.startColor = Color.white;
+            wire.endColor = Color.white;
+        }
     }
 
     public void SetColors(Color start, Color end)
@@ -41,5 +49,10 @@ public class Wire : MonoBehaviour
     public void UpdatePositions()
     {
         SetPositions(start.pos, end.pos);
+    }
+    public void UpdateSize()
+    {
+        wire.startWidth = Camera.main.orthographicSize / 200f;
+        wire.endWidth = Camera.main.orthographicSize / 200f;
     }
 }
