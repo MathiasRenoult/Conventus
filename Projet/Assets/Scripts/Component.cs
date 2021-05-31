@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System;
 
 public class Component : MonoBehaviour
 {
     public enum Type {Buffer, NOT, AND, OR, XOR, NAND, NOR, XNOR, Custom, Unset};
     public List<IO> ios = new List<IO>();
+    public int inputs;
+    public int outputs;
     public SpriteRenderer shapeRenderer;
     public string boolExpression;
     public string compName;
@@ -18,6 +21,13 @@ public class Component : MonoBehaviour
     public Vector2 heldPoint;
     public BoxCollider2D compCollider;
 
+    public Component(ComponentData data)
+    {
+        type = (Type)data.type;
+        inputs = data.inputs;
+        outputs = data.outputs;
+        truthTable = data.truthTable;
+    }
     private void Start()
     {
         SetCompGraphics((int)type);
@@ -55,7 +65,7 @@ public class Component : MonoBehaviour
 
         SetGateProperties();
     }
-    Vector2 CountInputsOutputs()
+    public Vector2 CountInputsOutputs()
     {
         int inputCount = 0;
         int outputCount = 0;
@@ -68,11 +78,6 @@ public class Component : MonoBehaviour
     float RoundToNearest(float n, float x) 
     {
         return Mathf.Round(n / x) * x;
-    }
-
-    public void ComputeTruthTable()
-    {
-
     }
 
     public void UpdateState()
@@ -105,12 +110,13 @@ public class Component : MonoBehaviour
         else
         {
             shapeRenderer.sprite = ComponentsGraphicManager.singleton.defaultComponent;
+            shapeRenderer.color = color;
         }
     }
 
     public void SetCorrectGateType(int index)
     {
-        switch(index%8)
+        switch(index%10)
         {
             case 0: type = Type.Buffer; break;
             case 1: type = Type.NOT; break;
@@ -120,19 +126,42 @@ public class Component : MonoBehaviour
             case 5: type = Type.NAND; break;
             case 6: type = Type.NOR; break;
             case 7: type = Type.XNOR; break;
+            case 8: type = Type.Custom; break;
+            case 9: type = Type.Unset; break;
         }
 
-        if(type == Type.Buffer || type == Type.NOT)
+        foreach(IO i in ios)
         {
-            ios.Add(new IO(true, false, Vector2.zero, new List<IO>(), this));
-            ios.Add(new IO(false, false, Vector2.zero, new List<IO>(), this));
+            i.FlushIO();
+        }
+        ios.Clear();
+
+        if(type == Type.Custom)
+        {
+            for(int i = 0; i < inputs; i++)
+            {
+                ios.Add(new IO(true, false, Vector2.zero, new List<IO>(), this));
+            }
+            for(int i = 0; i < outputs; i++)
+            {
+                ios.Add(new IO(false, false, Vector2.zero, new List<IO>(), this));
+            }
         }
         else
         {
-            ios.Add(new IO(true, false, Vector2.zero, new List<IO>(), this));
-            ios.Add(new IO(true, false, Vector2.zero, new List<IO>(), this));
-            ios.Add(new IO(false, false, Vector2.zero, new List<IO>(), this));
+            if(type == Type.Buffer || type == Type.NOT)
+            {
+                ios.Add(new IO(true, false, Vector2.zero, new List<IO>(), this));
+                ios.Add(new IO(false, false, Vector2.zero, new List<IO>(), this));
+            }
+            else
+            {
+                ios.Add(new IO(true, false, Vector2.zero, new List<IO>(), this));
+                ios.Add(new IO(true, false, Vector2.zero, new List<IO>(), this));
+                ios.Add(new IO(false, false, Vector2.zero, new List<IO>(), this));
+            }   
         }
+        
         SetGateProperties();
     }
 
@@ -161,7 +190,10 @@ public class Component : MonoBehaviour
             }    
         }
         
-        compName = type.ToString();
+        if(compName == "")
+        {
+            compName = type.ToString();
+        }
     }
 
     public void ComputeOutputStates()
@@ -196,7 +228,19 @@ public class Component : MonoBehaviour
         }
         else
         {
-            print("Not implemanted yet !");
+            string inputString = "";
+
+            for(int i = 0; i < inputs.Count; i++)
+            {
+                inputString += inputs[i].state == true ? 1 : 0;
+            }
+
+            int index = Convert.ToInt32(inputString, 2);
+
+            for(int i = 0; i < outputs.Count; i++)
+            {
+                outputs[i].state = truthTable[(index * outputs.Count) + i] == 1 ? true : false;
+            }   
         }
     }
 

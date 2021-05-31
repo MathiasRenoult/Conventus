@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AppManager : MonoBehaviour
 {
@@ -65,7 +66,7 @@ public class AppManager : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.H))
             {
-                switch(Random.Range(0,3))
+                switch(UnityEngine.Random.Range(0,3))
                 {
                     case 0: ComponentsGraphicManager.singleton.standard = ComponentsGraphicManager.LogicGatesStandard.ANSI; break;
                     case 1: ComponentsGraphicManager.singleton.standard = ComponentsGraphicManager.LogicGatesStandard.IEC; break;
@@ -177,13 +178,80 @@ public class AppManager : MonoBehaviour
             w.UpdateSize();
         }
     }
-    public Component CreateComponent(Component.Type type)
+    /// <summary>
+    /// Creates a new component to be used.
+    /// </summary>
+    /// <param name="type"> Either a logic-gate-type or Custom</param>
+    /// <param name="color"> Color used by the custom-type asset</param>
+    /// <param name="name"> Name of the component</param>
+    /// <param name="inputs">Number of inputs</param>
+    /// <param name="outputs">Number of outputs</param>
+    /// <param name="truthTable">Truth table of the component as a simple int array. Would be converted to a bool array later.</param>
+    /// <returns></returns>
+    public Component CreateComponent(Component.Type type, Color color, string name, int inputs = 0, int outputs = 0, int[] truthTable = null)
     {
         Component newComp = Instantiate(componentPrefab, this.transform).GetComponent<Component>();
         newComp.type = type;
-        newComp.name = newComp.type.ToString();
-        components.Add(newComp);
+        if(name == null)
+        {
+            newComp.name = newComp.compName = newComp.type.ToString();
+            print("Name is null !");
+        }
+        else
+        {
+            newComp.name = newComp.compName = name;
+            print(newComp.name);
+        }
+        if(color != new Color(-1f, -1f, -1f))
+        {
+            newComp.color = color;
+        }
+        else
+        {
+            newComp.color = Color.HSVToRGB((Mathf.Abs(newComp.name.GetHashCode())%512)/512f, 0.9f, 0.7f);
+        }
+        newComp.inputs = inputs;
+        newComp.outputs = outputs;
+        if(truthTable != null)
+        {
+            newComp.truthTable = truthTable;
+        }
+        else
+        {
+            print("Truth table is null !");
+        }
+        newComp.SetCorrectGateType((int)newComp.type);
         return newComp;
+    }
+
+    public Component CreateComponent(Component comp)
+    {
+        return CreateComponent(comp.type, comp.color, comp.name, comp.inputs, comp.outputs, comp.truthTable);
+    }
+    public Component CreateComponent(ComponentData data, string name)
+    {
+        return CreateComponent((Component.Type)data.type, new Color(-1f, -1f, -1f), name, data.inputs, data.outputs, data.truthTable);
+    }
+
+    public int[] ComputeCurrentTruthTable()
+    {
+        int size = (int)Mathf.Pow(2, inputs.Count);
+        int[] truthTable = new int[size * outputs.Count];
+        for(int i = 0; i < size; i++)
+        {
+            string binary = Convert.ToString(i, 2).PadLeft(inputs.Count, '0');
+            for(int j = 0; j < binary.Length; j++)
+            {
+                inputs[j].io.state = binary[j] == '1' ? true : false;
+            }
+            Simulation.singleton.RefreshState();
+            for(int j = 0; j<outputs.Count; j++)
+            {
+                truthTable[(i*outputs.Count)+j] = outputs[j].io.state == true ? 1 : 0;
+            } 
+        }
+        
+        return truthTable;
     }
     public void SelectComponent(Component c)
     {

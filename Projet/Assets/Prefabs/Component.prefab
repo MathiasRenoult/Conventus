@@ -96,10 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991d8f4aea7da0c42871873cac82957a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputs: []
-  outputs: []
+  ios: []
+  inputs: 0
+  outputs: 0
   shapeRenderer: {fileID: 2233418833265234072}
-  selectDot: {fileID: 0}
   boolExpression: 
   compName: 
   color: {r: 0, g: 1, b: 1, a: 1}
