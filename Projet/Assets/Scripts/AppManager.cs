@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+/// <summary>
+/// The App Manager is the central class of the application. It manages components on the canvas, 
+/// selected components, wires, some UI, canvas IO, mouse position and some keystrokes.
+/// </summary>
 public class AppManager : MonoBehaviour
 {
     public static AppManager singleton;
@@ -30,7 +33,6 @@ public class AppManager : MonoBehaviour
         Application.targetFrameRate = 100;
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
-
     void Update()
     {
         if(Input.GetMouseButtonDown(1))
@@ -80,6 +82,11 @@ public class AppManager : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// This function places the inputs and outputs switches on the left and right border of the screen.
+    /// It dynamically generates them by taking the current number of wanted IO. The function "UpdateWires()"
+    /// is called at the end.
+    /// </summary>
     public void UpdateCanvasIO()
     {
         int index = 0;
@@ -103,14 +110,24 @@ public class AppManager : MonoBehaviour
         
         UpdateWires();
     }
+    /// <summary>
+    /// Flips the "leftBorder" boolean attribut of the class.
+    /// </summary>
     public void SetOnOffLeftBorder()
     {
         leftBorder = !leftBorder;
     }
+    /// <summary>
+    /// Flips the "rightBorder" boolean attribut of the class.
+    /// </summary>
     public void SetOnOffRightBorder()
     {
         rightBorder = !rightBorder;
     }
+    /// <summary>
+    /// Adds an input switch to the left border. It is not placed at the correct position yet, "UpdateCanvasIO()"
+    /// will correct it later.
+    /// </summary>
     public void AddInput()
     {
         CanvasIO newInput = Instantiate(inputOutputPrefab, leftBorderTransform).GetComponent<CanvasIO>();
@@ -125,6 +142,10 @@ public class AppManager : MonoBehaviour
             index++;
         }
     }
+    /// <summary>
+    /// Deletes and input from the left border. The inputs left are then replaced at the correct position
+    /// next time "UpdateCanvasIO()" is called.
+    /// </summary>
     public void DeleteInput()
     {
         CanvasIO toDelete = inputs[inputs.Count-1];
@@ -140,6 +161,10 @@ public class AppManager : MonoBehaviour
             index++;
         }
     }
+    /// <summary>
+    /// Adds an output switch to the right border. It is not placed at the correct position yet, "UpdateCanvasIO()"
+    /// will correct it later.
+    /// </summary>
     public void AddOutput()
     {
         CanvasIO newOutput = Instantiate(inputOutputPrefab, rightBorderTransform).GetComponent<CanvasIO>();
@@ -155,6 +180,10 @@ public class AppManager : MonoBehaviour
             index++;
         }
     }
+    /// <summary>
+    /// Deletes and output from the right border. The inputs left are then replaced at the correct position
+    /// next time "UpdateCanvasIO()" is called.
+    /// </summary>
     public void DeleteOutput()
     {
         CanvasIO toDelete = outputs[outputs.Count-1];
@@ -170,6 +199,9 @@ public class AppManager : MonoBehaviour
             index++;
         }
     }
+    /// <summary>
+    /// Calls the "UpdatePositions()" and "UpdateSize()" function for each wire int the "wires" list of the class.
+    /// </summary>
     public void UpdateWires()
     {
         foreach(Wire w in wires)
@@ -223,16 +255,29 @@ public class AppManager : MonoBehaviour
         newComp.SetCorrectGateType((int)newComp.type);
         return newComp;
     }
-
+    /// <summary>
+    /// Overload of the function taking a simple component as parameter.
+    /// </summary>
+    /// <param name="comp">Component used as model</param>
+    /// <returns></returns>
     public Component CreateComponent(Component comp)
     {
         return CreateComponent(comp.type, comp.color, comp.name, comp.inputs, comp.outputs, comp.truthTable);
     }
+    /// <summary>
+    /// Overload of the function taking a ComponentData parameter and a string.
+    /// </summary>
+    /// <param name="data">Data used as model to create a new component</param>
+    /// <param name="name">Name of the new component</param>
+    /// <returns></returns>
     public Component CreateComponent(ComponentData data, string name)
     {
         return CreateComponent((Component.Type)data.type, new Color(-1f, -1f, -1f), name, data.inputs, data.outputs, data.truthTable);
     }
-
+    /// <summary>
+    /// This function uses the already set truth table to compute the correct outputs. 
+    /// </summary>
+    /// <returns></returns>
     public int[] ComputeCurrentTruthTable()
     {
         int size = (int)Mathf.Pow(2, inputs.Count);
