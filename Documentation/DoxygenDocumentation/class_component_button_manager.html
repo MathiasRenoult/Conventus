@@ -91,6 +91,9 @@ $(document).ready(function(){initNavTree('class_component_button_manager.html','
 <div class="title">ComponentButtonManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class manages the buttons used to create the gates.  
+ <a href="class_component_button_manager.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for ComponentButtonManager:</div>
 <div class="dyncontent">
@@ -100,11 +103,11 @@ Inheritance diagram for ComponentButtonManager:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac9f70633884ed34dd303b7c3deef7af4"><td class="memItemLeft" align="right" valign="top"><a id="ac9f70633884ed34dd303b7c3deef7af4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RefreshButtons</b> ()</td></tr>
+<tr class="memitem:ac9f70633884ed34dd303b7c3deef7af4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_button_manager.html#ac9f70633884ed34dd303b7c3deef7af4">RefreshButtons</a> ()</td></tr>
+<tr class="memdesc:ac9f70633884ed34dd303b7c3deef7af4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refreshes buttons exsistance, text, color and position.  <a href="class_component_button_manager.html#ac9f70633884ed34dd303b7c3deef7af4">More...</a><br /></td></tr>
 <tr class="separator:ac9f70633884ed34dd303b7c3deef7af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afca33057be9724ff213dba07693a29c8"><td class="memItemLeft" align="right" valign="top"><a id="afca33057be9724ff213dba07693a29c8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>OpenCloseComponentMenu</b> ()</td></tr>
+<tr class="memitem:afca33057be9724ff213dba07693a29c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component_button_manager.html#afca33057be9724ff213dba07693a29c8">OpenCloseComponentMenu</a> ()</td></tr>
+<tr class="memdesc:afca33057be9724ff213dba07693a29c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flips the state of the components panel.  <a href="class_component_button_manager.html#afca33057be9724ff213dba07693a29c8">More...</a><br /></td></tr>
 <tr class="separator:afca33057be9724ff213dba07693a29c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -115,6 +118,9 @@ Button&#160;</td><td class="memItemRight" valign="bottom"><b>createAndSaveButton
 <tr class="memitem:ad4070a0a1f2576b17d2a9588e9181d66"><td class="memItemLeft" align="right" valign="top"><a id="ad4070a0a1f2576b17d2a9588e9181d66"></a>
 Button&#160;</td><td class="memItemRight" valign="bottom"><b>componentMenuButton</b></td></tr>
 <tr class="separator:ad4070a0a1f2576b17d2a9588e9181d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af58c55a15fa50ddb44ad56179652dfbe"><td class="memItemLeft" align="right" valign="top"><a id="af58c55a15fa50ddb44ad56179652dfbe"></a>
+Color&#160;</td><td class="memItemRight" valign="bottom"><b>buttonBaseColor</b></td></tr>
+<tr class="separator:af58c55a15fa50ddb44ad56179652dfbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bddbaf8fcadef2ac5e1b80e313c42e1"><td class="memItemLeft" align="right" valign="top"><a id="a8bddbaf8fcadef2ac5e1b80e313c42e1"></a>
 GameObject&#160;</td><td class="memItemRight" valign="bottom"><b>componentMenuPanel</b></td></tr>
 <tr class="separator:a8bddbaf8fcadef2ac5e1b80e313c42e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,8 +149,49 @@ Static Public Attributes</h2></td></tr>
 static <a class="el" href="class_component_button_manager.html">ComponentButtonManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>singleton</b></td></tr>
 <tr class="separator:a5c67968ac246305b9fe54d06d58024fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class manages the buttons used to create the gates. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="afca33057be9724ff213dba07693a29c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afca33057be9724ff213dba07693a29c8">&#9670;&nbsp;</a></span>OpenCloseComponentMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ComponentButtonManager.OpenCloseComponentMenu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flips the state of the components panel. </p>
+
+</div>
+</div>
+<a id="ac9f70633884ed34dd303b7c3deef7af4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9f70633884ed34dd303b7c3deef7af4">&#9670;&nbsp;</a></span>RefreshButtons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ComponentButtonManager.RefreshButtons </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Refreshes buttons exsistance, text, color and position. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>ComponentButtonManager.cs</li>
+<li>C:/Conventus/Conventus/Projet/Assets/Scripts/ComponentButtonManager.cs</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

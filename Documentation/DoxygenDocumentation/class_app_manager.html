@@ -91,6 +91,9 @@ $(document).ready(function(){initNavTree('class_app_manager.html',''); initResiz
 <div class="title">AppManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The App Manager is the central class of the application. It manages components on the canvas, selected components, wires, some UI, canvas <a class="el" href="class_i_o.html">IO</a>, mouse position and some keystrokes.  
+ <a href="class_app_manager.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for AppManager:</div>
 <div class="dyncontent">
@@ -100,51 +103,60 @@ Inheritance diagram for AppManager:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5879420ab053bd2a9c60b1bb1c1b3750"><td class="memItemLeft" align="right" valign="top"><a id="a5879420ab053bd2a9c60b1bb1c1b3750"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateCanvasIO</b> ()</td></tr>
+<tr class="memitem:a5879420ab053bd2a9c60b1bb1c1b3750"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#a5879420ab053bd2a9c60b1bb1c1b3750">UpdateCanvasIO</a> ()</td></tr>
+<tr class="memdesc:a5879420ab053bd2a9c60b1bb1c1b3750"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function places the inputs and outputs switches on the left and right border of the screen. It dynamically generates them by taking the current number of wanted <a class="el" href="class_i_o.html">IO</a>. The function "UpdateWires()" is called at the end.  <a href="class_app_manager.html#a5879420ab053bd2a9c60b1bb1c1b3750">More...</a><br /></td></tr>
 <tr class="separator:a5879420ab053bd2a9c60b1bb1c1b3750"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4481d374ba9818fe081579f3111a5a7c"><td class="memItemLeft" align="right" valign="top"><a id="a4481d374ba9818fe081579f3111a5a7c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetOnOffLeftBorder</b> ()</td></tr>
+<tr class="memitem:a4481d374ba9818fe081579f3111a5a7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#a4481d374ba9818fe081579f3111a5a7c">SetOnOffLeftBorder</a> ()</td></tr>
+<tr class="memdesc:a4481d374ba9818fe081579f3111a5a7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flips the "leftBorder" boolean attribut of the class.  <a href="class_app_manager.html#a4481d374ba9818fe081579f3111a5a7c">More...</a><br /></td></tr>
 <tr class="separator:a4481d374ba9818fe081579f3111a5a7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac23b892e2d9fbdb47e331e50bbd5ee67"><td class="memItemLeft" align="right" valign="top"><a id="ac23b892e2d9fbdb47e331e50bbd5ee67"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetOnOffRightBorder</b> ()</td></tr>
+<tr class="memitem:ac23b892e2d9fbdb47e331e50bbd5ee67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#ac23b892e2d9fbdb47e331e50bbd5ee67">SetOnOffRightBorder</a> ()</td></tr>
+<tr class="memdesc:ac23b892e2d9fbdb47e331e50bbd5ee67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flips the "rightBorder" boolean attribut of the class.  <a href="class_app_manager.html#ac23b892e2d9fbdb47e331e50bbd5ee67">More...</a><br /></td></tr>
 <tr class="separator:ac23b892e2d9fbdb47e331e50bbd5ee67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af40ca8ca341257c76b5bd63635d7842b"><td class="memItemLeft" align="right" valign="top"><a id="af40ca8ca341257c76b5bd63635d7842b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddInput</b> ()</td></tr>
+<tr class="memitem:af40ca8ca341257c76b5bd63635d7842b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#af40ca8ca341257c76b5bd63635d7842b">AddInput</a> ()</td></tr>
+<tr class="memdesc:af40ca8ca341257c76b5bd63635d7842b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an input switch to the left border. It is not placed at the correct position yet, "UpdateCanvasIO()" will correct it later.  <a href="class_app_manager.html#af40ca8ca341257c76b5bd63635d7842b">More...</a><br /></td></tr>
 <tr class="separator:af40ca8ca341257c76b5bd63635d7842b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cde1b042d635ab5aa3c7f1ead1aa26f"><td class="memItemLeft" align="right" valign="top"><a id="a0cde1b042d635ab5aa3c7f1ead1aa26f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DeleteInput</b> ()</td></tr>
+<tr class="memitem:a0cde1b042d635ab5aa3c7f1ead1aa26f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#a0cde1b042d635ab5aa3c7f1ead1aa26f">DeleteInput</a> ()</td></tr>
+<tr class="memdesc:a0cde1b042d635ab5aa3c7f1ead1aa26f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes and input from the left border. The inputs left are then replaced at the correct position next time "UpdateCanvasIO()" is called.  <a href="class_app_manager.html#a0cde1b042d635ab5aa3c7f1ead1aa26f">More...</a><br /></td></tr>
 <tr class="separator:a0cde1b042d635ab5aa3c7f1ead1aa26f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ae8f06ff7bc8c32337d2751e744df57"><td class="memItemLeft" align="right" valign="top"><a id="a0ae8f06ff7bc8c32337d2751e744df57"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddOutput</b> ()</td></tr>
+<tr class="memitem:a0ae8f06ff7bc8c32337d2751e744df57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#a0ae8f06ff7bc8c32337d2751e744df57">AddOutput</a> ()</td></tr>
+<tr class="memdesc:a0ae8f06ff7bc8c32337d2751e744df57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an output switch to the right border. It is not placed at the correct position yet, "UpdateCanvasIO()" will correct it later.  <a href="class_app_manager.html#a0ae8f06ff7bc8c32337d2751e744df57">More...</a><br /></td></tr>
 <tr class="separator:a0ae8f06ff7bc8c32337d2751e744df57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac03edab6e4dc1834b91d0b78bcbd77f2"><td class="memItemLeft" align="right" valign="top"><a id="ac03edab6e4dc1834b91d0b78bcbd77f2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DeleteOutput</b> ()</td></tr>
+<tr class="memitem:ac03edab6e4dc1834b91d0b78bcbd77f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#ac03edab6e4dc1834b91d0b78bcbd77f2">DeleteOutput</a> ()</td></tr>
+<tr class="memdesc:ac03edab6e4dc1834b91d0b78bcbd77f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes and output from the right border. The inputs left are then replaced at the correct position next time "UpdateCanvasIO()" is called.  <a href="class_app_manager.html#ac03edab6e4dc1834b91d0b78bcbd77f2">More...</a><br /></td></tr>
 <tr class="separator:ac03edab6e4dc1834b91d0b78bcbd77f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3fd5e07574c47a1860b6f0729698988"><td class="memItemLeft" align="right" valign="top"><a id="ac3fd5e07574c47a1860b6f0729698988"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateWires</b> ()</td></tr>
+<tr class="memitem:ac3fd5e07574c47a1860b6f0729698988"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#ac3fd5e07574c47a1860b6f0729698988">UpdateWires</a> ()</td></tr>
+<tr class="memdesc:ac3fd5e07574c47a1860b6f0729698988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the "UpdatePositions()" and "UpdateSize()" function for each wire int the "wires" list of the class.  <a href="class_app_manager.html#ac3fd5e07574c47a1860b6f0729698988">More...</a><br /></td></tr>
 <tr class="separator:ac3fd5e07574c47a1860b6f0729698988"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19baa6b7555872a94b34344ff03bfe07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_component.html">Component</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#a19baa6b7555872a94b34344ff03bfe07">CreateComponent</a> (Component.Type type, Color color, string name, int inputs=0, int outputs=0, int[] truthTable=null)</td></tr>
 <tr class="memdesc:a19baa6b7555872a94b34344ff03bfe07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new component to be used.  <a href="class_app_manager.html#a19baa6b7555872a94b34344ff03bfe07">More...</a><br /></td></tr>
 <tr class="separator:a19baa6b7555872a94b34344ff03bfe07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace749c1fa0753484debf048436aecf01"><td class="memItemLeft" align="right" valign="top"><a id="ace749c1fa0753484debf048436aecf01"></a>
-<a class="el" href="class_component.html">Component</a>&#160;</td><td class="memItemRight" valign="bottom"><b>CreateComponent</b> (<a class="el" href="class_component.html">Component</a> comp)</td></tr>
+<tr class="memitem:ace749c1fa0753484debf048436aecf01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_component.html">Component</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#ace749c1fa0753484debf048436aecf01">CreateComponent</a> (<a class="el" href="class_component.html">Component</a> comp)</td></tr>
+<tr class="memdesc:ace749c1fa0753484debf048436aecf01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of the function taking a simple component as parameter.  <a href="class_app_manager.html#ace749c1fa0753484debf048436aecf01">More...</a><br /></td></tr>
 <tr class="separator:ace749c1fa0753484debf048436aecf01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a791232ea1ec86fdd01c92f8c6cdb606c"><td class="memItemLeft" align="right" valign="top"><a id="a791232ea1ec86fdd01c92f8c6cdb606c"></a>
-<a class="el" href="class_component.html">Component</a>&#160;</td><td class="memItemRight" valign="bottom"><b>CreateComponent</b> (<a class="el" href="class_component_data.html">ComponentData</a> data, string name)</td></tr>
+<tr class="memitem:a791232ea1ec86fdd01c92f8c6cdb606c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_component.html">Component</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#a791232ea1ec86fdd01c92f8c6cdb606c">CreateComponent</a> (<a class="el" href="class_component_data.html">ComponentData</a> data, string name)</td></tr>
+<tr class="memdesc:a791232ea1ec86fdd01c92f8c6cdb606c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of the function taking a <a class="el" href="class_component_data.html" title="This class cannot be instantiated. It is used as a temporary class to convert components to JSON and ...">ComponentData</a> parameter and a string.  <a href="class_app_manager.html#a791232ea1ec86fdd01c92f8c6cdb606c">More...</a><br /></td></tr>
 <tr class="separator:a791232ea1ec86fdd01c92f8c6cdb606c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0401892cfb4d5135c016be2ed32781b0"><td class="memItemLeft" align="right" valign="top"><a id="a0401892cfb4d5135c016be2ed32781b0"></a>
-int[]&#160;</td><td class="memItemRight" valign="bottom"><b>ComputeCurrentTruthTable</b> ()</td></tr>
+<tr class="memitem:a0401892cfb4d5135c016be2ed32781b0"><td class="memItemLeft" align="right" valign="top">int[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#a0401892cfb4d5135c016be2ed32781b0">ComputeCurrentTruthTable</a> ()</td></tr>
+<tr class="memdesc:a0401892cfb4d5135c016be2ed32781b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function uses the already set truth table to compute the correct outputs.  <a href="class_app_manager.html#a0401892cfb4d5135c016be2ed32781b0">More...</a><br /></td></tr>
 <tr class="separator:a0401892cfb4d5135c016be2ed32781b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abafd697cf47ab632ea9eb28c619ca4d9"><td class="memItemLeft" align="right" valign="top"><a id="abafd697cf47ab632ea9eb28c619ca4d9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SelectComponent</b> (<a class="el" href="class_component.html">Component</a> c)</td></tr>
+<tr class="memitem:abafd697cf47ab632ea9eb28c619ca4d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#abafd697cf47ab632ea9eb28c619ca4d9">SelectComponent</a> (<a class="el" href="class_component.html">Component</a> c)</td></tr>
+<tr class="memdesc:abafd697cf47ab632ea9eb28c619ca4d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects a component thus setting it as "grabbed" by the cursor  <a href="class_app_manager.html#abafd697cf47ab632ea9eb28c619ca4d9">More...</a><br /></td></tr>
 <tr class="separator:abafd697cf47ab632ea9eb28c619ca4d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb39359467399e362a0e2b669178679a"><td class="memItemLeft" align="right" valign="top"><a id="adb39359467399e362a0e2b669178679a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DeselectAllSelectedComponents</b> ()</td></tr>
+<tr class="memitem:adb39359467399e362a0e2b669178679a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#adb39359467399e362a0e2b669178679a">DeselectAllSelectedComponents</a> ()</td></tr>
+<tr class="memdesc:adb39359467399e362a0e2b669178679a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deselect all selected compenents. Basically clears the "selectedComponents" list.  <a href="class_app_manager.html#adb39359467399e362a0e2b669178679a">More...</a><br /></td></tr>
 <tr class="separator:adb39359467399e362a0e2b669178679a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af75c20908ed5e54b3c772265eddbfba5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#af75c20908ed5e54b3c772265eddbfba5">ClearCanvas</a> ()</td></tr>
+<tr class="memdesc:af75c20908ed5e54b3c772265eddbfba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the canvas by destroying every component on it.  <a href="class_app_manager.html#af75c20908ed5e54b3c772265eddbfba5">More...</a><br /></td></tr>
+<tr class="separator:af75c20908ed5e54b3c772265eddbfba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1fba463a7ebb075a202b6fd4f857c77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_manager.html#ae1fba463a7ebb075a202b6fd4f857c77">Capture</a> ()</td></tr>
+<tr class="memdesc:ae1fba463a7ebb075a202b6fd4f857c77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take a screenshot of the screen and saves it as PNG Code taken from : <a href="https://docs.unity3d.com/ScriptReference/ScreenCapture.html">https://docs.unity3d.com/ScriptReference/ScreenCapture.html</a>  <a href="class_app_manager.html#ae1fba463a7ebb075a202b6fd4f857c77">More...</a><br /></td></tr>
+<tr class="separator:ae1fba463a7ebb075a202b6fd4f857c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a709b97bb3bfd08dc7dcb910ef2daeee1"><td class="memItemLeft" align="right" valign="top"><a id="a709b97bb3bfd08dc7dcb910ef2daeee1"></a>
+Transform&#160;</td><td class="memItemRight" valign="bottom"><b>mainCanvas</b></td></tr>
+<tr class="separator:a709b97bb3bfd08dc7dcb910ef2daeee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae03dd22db61cf4edc5cc85f44f16f9fc"><td class="memItemLeft" align="right" valign="top"><a id="ae03dd22db61cf4edc5cc85f44f16f9fc"></a>
 GameObject&#160;</td><td class="memItemRight" valign="bottom"><b>componentPrefab</b></td></tr>
 <tr class="separator:ae03dd22db61cf4edc5cc85f44f16f9fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -187,6 +199,9 @@ Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>mousePos</b></td><
 <tr class="memitem:a18ba65d0061fbde769fc24e09bd9d239"><td class="memItemLeft" align="right" valign="top"><a id="a18ba65d0061fbde769fc24e09bd9d239"></a>
 Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>oldMousePos</b></td></tr>
 <tr class="separator:a18ba65d0061fbde769fc24e09bd9d239"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a760c542697f8ce4e227d19f860cdda"><td class="memItemLeft" align="right" valign="top"><a id="a2a760c542697f8ce4e227d19f860cdda"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>fileCounter</b></td></tr>
+<tr class="separator:a2a760c542697f8ce4e227d19f860cdda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a828ddaa1b7efbcf883df9e8c60155e18"><td class="memItemLeft" align="right" valign="top"><a id="a828ddaa1b7efbcf883df9e8c60155e18"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>rightBorder</b></td></tr>
 <tr class="separator:a828ddaa1b7efbcf883df9e8c60155e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,9 +215,134 @@ Static Public Attributes</h2></td></tr>
 static <a class="el" href="class_app_manager.html">AppManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>singleton</b></td></tr>
 <tr class="separator:a24ce5aec70d389e6fa2ea9ca635191b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The App Manager is the central class of the application. It manages components on the canvas, selected components, wires, some UI, canvas <a class="el" href="class_i_o.html">IO</a>, mouse position and some keystrokes. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="af40ca8ca341257c76b5bd63635d7842b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af40ca8ca341257c76b5bd63635d7842b">&#9670;&nbsp;</a></span>AddInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AppManager.AddInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds an input switch to the left border. It is not placed at the correct position yet, "UpdateCanvasIO()" will correct it later. </p>
+
+</div>
+</div>
+<a id="a0ae8f06ff7bc8c32337d2751e744df57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ae8f06ff7bc8c32337d2751e744df57">&#9670;&nbsp;</a></span>AddOutput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AppManager.AddOutput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds an output switch to the right border. It is not placed at the correct position yet, "UpdateCanvasIO()" will correct it later. </p>
+
+</div>
+</div>
+<a id="ae1fba463a7ebb075a202b6fd4f857c77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1fba463a7ebb075a202b6fd4f857c77">&#9670;&nbsp;</a></span>Capture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AppManager.Capture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Take a screenshot of the screen and saves it as PNG Code taken from : <a href="https://docs.unity3d.com/ScriptReference/ScreenCapture.html">https://docs.unity3d.com/ScriptReference/ScreenCapture.html</a> </p>
+
+</div>
+</div>
+<a id="af75c20908ed5e54b3c772265eddbfba5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af75c20908ed5e54b3c772265eddbfba5">&#9670;&nbsp;</a></span>ClearCanvas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AppManager.ClearCanvas </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clear the canvas by destroying every component on it. </p>
+
+</div>
+</div>
+<a id="a0401892cfb4d5135c016be2ed32781b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0401892cfb4d5135c016be2ed32781b0">&#9670;&nbsp;</a></span>ComputeCurrentTruthTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int [] AppManager.ComputeCurrentTruthTable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function uses the already set truth table to compute the correct outputs. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="ace749c1fa0753484debf048436aecf01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace749c1fa0753484debf048436aecf01">&#9670;&nbsp;</a></span>CreateComponent() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_component.html">Component</a> AppManager.CreateComponent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_component.html">Component</a>&#160;</td>
+          <td class="paramname"><em>comp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overload of the function taking a simple component as parameter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">comp</td><td><a class="el" href="class_component.html" title="This class is one of the biggest class of the project. A component is an element which can be placed ...">Component</a> used as model</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 <a id="a19baa6b7555872a94b34344ff03bfe07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19baa6b7555872a94b34344ff03bfe07">&#9670;&nbsp;</a></span>CreateComponent()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a19baa6b7555872a94b34344ff03bfe07">&#9670;&nbsp;</a></span>CreateComponent() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -267,8 +407,205 @@ static <a class="el" href="class_app_manager.html">AppManager</a>&#160;</td><td 
 
 </div>
 </div>
+<a id="a791232ea1ec86fdd01c92f8c6cdb606c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a791232ea1ec86fdd01c92f8c6cdb606c">&#9670;&nbsp;</a></span>CreateComponent() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_component.html">Component</a> AppManager.CreateComponent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_component_data.html">ComponentData</a>&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overload of the function taking a <a class="el" href="class_component_data.html" title="This class cannot be instantiated. It is used as a temporary class to convert components to JSON and ...">ComponentData</a> parameter and a string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Data used as model to create a new component</td></tr>
+    <tr><td class="paramname">name</td><td>Name of the new component</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
+<a id="a0cde1b042d635ab5aa3c7f1ead1aa26f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cde1b042d635ab5aa3c7f1ead1aa26f">&#9670;&nbsp;</a></span>DeleteInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AppManager.DeleteInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deletes and input from the left border. The inputs left are then replaced at the correct position next time "UpdateCanvasIO()" is called. </p>
+
+</div>
+</div>
+<a id="ac03edab6e4dc1834b91d0b78bcbd77f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac03edab6e4dc1834b91d0b78bcbd77f2">&#9670;&nbsp;</a></span>DeleteOutput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AppManager.DeleteOutput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deletes and output from the right border. The inputs left are then replaced at the correct position next time "UpdateCanvasIO()" is called. </p>
+
+</div>
+</div>
+<a id="adb39359467399e362a0e2b669178679a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb39359467399e362a0e2b669178679a">&#9670;&nbsp;</a></span>DeselectAllSelectedComponents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AppManager.DeselectAllSelectedComponents </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deselect all selected compenents. Basically clears the "selectedComponents" list. </p>
+
+</div>
+</div>
+<a id="abafd697cf47ab632ea9eb28c619ca4d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abafd697cf47ab632ea9eb28c619ca4d9">&#9670;&nbsp;</a></span>SelectComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AppManager.SelectComponent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_component.html">Component</a>&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Selects a component thus setting it as "grabbed" by the cursor </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td><a class="el" href="class_component.html" title="This class is one of the biggest class of the project. A component is an element which can be placed ...">Component</a> to select.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4481d374ba9818fe081579f3111a5a7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4481d374ba9818fe081579f3111a5a7c">&#9670;&nbsp;</a></span>SetOnOffLeftBorder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AppManager.SetOnOffLeftBorder </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flips the "leftBorder" boolean attribut of the class. </p>
+
+</div>
+</div>
+<a id="ac23b892e2d9fbdb47e331e50bbd5ee67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac23b892e2d9fbdb47e331e50bbd5ee67">&#9670;&nbsp;</a></span>SetOnOffRightBorder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AppManager.SetOnOffRightBorder </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flips the "rightBorder" boolean attribut of the class. </p>
+
+</div>
+</div>
+<a id="a5879420ab053bd2a9c60b1bb1c1b3750"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5879420ab053bd2a9c60b1bb1c1b3750">&#9670;&nbsp;</a></span>UpdateCanvasIO()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AppManager.UpdateCanvasIO </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function places the inputs and outputs switches on the left and right border of the screen. It dynamically generates them by taking the current number of wanted <a class="el" href="class_i_o.html">IO</a>. The function "UpdateWires()" is called at the end. </p>
+
+</div>
+</div>
+<a id="ac3fd5e07574c47a1860b6f0729698988"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3fd5e07574c47a1860b6f0729698988">&#9670;&nbsp;</a></span>UpdateWires()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AppManager.UpdateWires </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calls the "UpdatePositions()" and "UpdateSize()" function for each wire int the "wires" list of the class. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>AppManager.cs</li>
+<li>C:/Conventus/Conventus/Projet/Assets/Scripts/AppManager.cs</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -34,6 +34,41 @@ public class SaveManager : MonoBehaviour
             LoadComponents();
         }
     }
+    public void ChangeFileName(string oldFileName, string newFileName)
+    {
+        foreach (string file in System.IO.Directory.GetFiles(path))
+        {
+            if(Path.GetFileNameWithoutExtension(file) == oldFileName)
+            {
+                oldFileName = file;
+                newFileName = Directory.GetParent(oldFileName) + "/" + newFileName + ".json";
+            }
+        }
+        print("old : " + oldFileName);
+        print("new : " + newFileName);
+        File.Move(oldFileName, newFileName);
+        LoadComponents();
+        print("File changed name !");
+    }
+    public void DeleteFile(string fileName)
+    {
+        foreach (string file in System.IO.Directory.GetFiles(path))
+        {
+            if(Path.GetFileNameWithoutExtension(file) == fileName)
+            {
+                File.Delete(file);
+                LoadComponents();
+                print("File deleted !");
+                break;
+            }
+        }
+    }
+    public void DeleteComponent(Component component)
+    {
+        ComponentButtonManager.singleton.registeredComponents.Remove(component);
+        Destroy(component.gameObject);
+        DeleteFile(component.name);
+    }
     /// <summary>
     /// Save current components to the HDD as json files.
     /// </summary>

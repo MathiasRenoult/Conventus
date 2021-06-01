@@ -7,6 +7,7 @@ public class SelectionManager : MonoBehaviour
     public static SelectionManager singleton;
     public Vector2 mousePos;
     public Vector2 oldMousePos;
+    public GameObject redLayer;
     public GameObject selectRectPrefab;
     public LineRenderer selectRectLine;
     public BoxCollider2D selectRectCollider;
@@ -23,6 +24,20 @@ public class SelectionManager : MonoBehaviour
     void LateUpdate() // LateUpdate cause it's more fluid for movements
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if(onTrash && AppManager.singleton.selectedComponents.Count > 0)
+        {
+            if(!redLayer.activeSelf)
+            {
+                redLayer.SetActive(true);
+            }
+        }
+        else
+        {
+            if(redLayer.activeSelf)
+            {
+                redLayer.SetActive(false);
+            }
+        }
         if(!WireTool.singleton.selectDot.gameObject.activeSelf)
         {
             if(Input.GetMouseButtonDown(0))

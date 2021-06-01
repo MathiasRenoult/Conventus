@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['createcomponent_37',['CreateComponent',['../class_app_manager.html#a19baa6b7555872a94b34344ff03bfe07',1,'AppManager']]]
+  ['addinput_73',['AddInput',['../class_app_manager.html#af40ca8ca341257c76b5bd63635d7842b',1,'AppManager']]],
+  ['addoutput_74',['AddOutput',['../class_app_manager.html#a0ae8f06ff7bc8c32337d2751e744df57',1,'AppManager']]]
 ];

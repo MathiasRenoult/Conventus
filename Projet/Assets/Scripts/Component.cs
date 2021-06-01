@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
-
+/// <summary>
+/// This class is one of the biggest class of the project. A component is an element which can be placed on the canvas
+/// and linked to other components. There's mainly two types of components : the gates and the custom. If a component
+/// has a "gate" type, the way the outputs are computed is much faster because its hardcoded. 
+/// </summary>
 public class Component : MonoBehaviour
 {
     public enum Type {Buffer, NOT, AND, OR, XOR, NAND, NOR, XNOR, Custom, Unset};
@@ -20,7 +24,10 @@ public class Component : MonoBehaviour
     public bool held;
     public Vector2 heldPoint;
     public BoxCollider2D compCollider;
-
+    /// <summary>
+    /// This constructor takes a "ComponentData" class as input and converts it to a regular "Component" class.
+    /// </summary>
+    /// <param name="data">The data used as model</param>
     public Component(ComponentData data)
     {
         type = (Type)data.type;
@@ -50,6 +57,11 @@ public class Component : MonoBehaviour
             UpdateCompGraphics();
         }
     }
+    /// <summary>
+    /// Moves the component to the wanted position. Usually the cursor position.
+    /// </summary>
+    /// <param name="pos">Position to move to</param>
+    /// <param name="snapToGrid">Should the component snap to the grid ?</param>
     public void Move(Vector2 pos, bool snapToGrid)
     {
         if(snapToGrid)
@@ -65,6 +77,10 @@ public class Component : MonoBehaviour
 
         SetGateProperties();
     }
+    /// <summary>
+    /// Analyses all the IOs of the component and returns the number of inputs and outputs as a "Vector2".
+    /// </summary>
+    /// <returns>Vector2 with x being the number of inputs and y the number of outputs</returns>
     public Vector2 CountInputsOutputs()
     {
         int inputCount = 0;
@@ -75,21 +91,28 @@ public class Component : MonoBehaviour
         }
         return new Vector2(inputCount, outputCount);
     }
+    /// <summary>
+    /// Simple function rounding n to nearest multiple of x.
+    /// </summary>
+    /// <param name="n">Number to round</param>
+    /// <param name="x">Multiple</param>
+    /// <returns>Float being the rounded at multiple of n to x</returns>
     float RoundToNearest(float n, float x) 
     {
         return Mathf.Round(n / x) * x;
     }
-
-    public void UpdateState()
-    {
-        if(type == Type.Unset)
-            return;      
-    }
-
+    /// <summary>
+    /// Shortcut to the function "SetCompGraphics".
+    /// </summary>
     public void UpdateCompGraphics()
     {
         SetCompGraphics((int)type);
     } 
+    /// <summary>
+    /// Takes an index and sets the component to the corresponding type according to the active gate norm. 
+    /// Updates the color of the component too.
+    /// </summary>
+    /// <param name="index">Index representing the type we want to set the component to</param>
     public void SetCompGraphics(int index)
     {
         if(type != Type.Custom && type != Type.Unset)
@@ -106,6 +129,7 @@ public class Component : MonoBehaviour
                     shapeRenderer.sprite = ComponentsGraphicManager.singleton.spritesDIN[index%8];
                 break;
             }
+            shapeRenderer.color = GetColorFromType(type);
         }
         else
         {
@@ -113,22 +137,13 @@ public class Component : MonoBehaviour
             shapeRenderer.color = color;
         }
     }
-
+    /// <summary>
+    /// Takes an index and sets the corresponding type. Sets the correct number of IOs.
+    /// </summary>
+    /// <param name="index">Index of the type we want to set</param>
     public void SetCorrectGateType(int index)
     {
-        switch(index%10)
-        {
-            case 0: type = Type.Buffer; break;
-            case 1: type = Type.NOT; break;
-            case 2: type = Type.AND; break;
-            case 3: type = Type.OR; break;
-            case 4: type = Type.XOR; break;
-            case 5: type = Type.NAND; break;
-            case 6: type = Type.NOR; break;
-            case 7: type = Type.XNOR; break;
-            case 8: type = Type.Custom; break;
-            case 9: type = Type.Unset; break;
-        }
+        type = (Type)index;
 
         foreach(IO i in ios)
         {
@@ -164,7 +179,9 @@ public class Component : MonoBehaviour
         
         SetGateProperties();
     }
-
+    /// <summary>
+    /// Sets the hitbox, inputs and outputs number, IOs positions and name of the component.
+    /// </summary>
     public void SetGateProperties()
     {
         Vector2 S = shapeRenderer.sprite.bounds.size;
@@ -195,7 +212,9 @@ public class Component : MonoBehaviour
             compName = type.ToString();
         }
     }
-
+    /// <summary>
+    /// Takes inputs and sets the outputs to their correct state according to the type of the component or to the truth table.
+    /// </summary>
     public void ComputeOutputStates()
     {
         List<IO> inputs = new List<IO>();
@@ -243,7 +262,9 @@ public class Component : MonoBehaviour
             }   
         }
     }
-
+    /// <summary>
+    /// Prepares a component to delete it. Basically removes all the linked wires.
+    /// </summary>
     public void FlushComponent()
     {
         List<Wire> toDestroy = new List<Wire>();
@@ -255,5 +276,26 @@ public class Component : MonoBehaviour
             }
         }
         WireTool.singleton.DestroyWires(toDestroy.ToArray());
+    }
+    /// <summary>
+    /// Each gate has his distinct color. This function returns it.
+    /// </summary>
+    /// <param name="type">Type we want the specific color from</param>
+    /// <returns>Color corresponding to the entered parameter</returns>
+    public Color GetColorFromType(Type type)
+    {
+        switch(type)
+        {
+            case Type.Buffer : return Color.black;
+            case Type.NOT : return new Color(1f,0.27f,0f);
+            case Type.AND : return Color.yellow;
+            case Type.OR : return new Color(0.78f,0.082f,0.52f);
+            case Type.XOR : return new Color(0f,0.9803f,0.603f);
+            case Type.NAND : return Color.blue;
+            case Type.NOR : return new Color(0.117f,0.564f,1f);
+            case Type.XNOR : return new Color(1f,0.854f,0.725f);
+        }
+
+        return Color.white;
     }
 }

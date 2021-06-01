@@ -46,7 +46,6 @@ public class ComponentMenuManager : MonoBehaviour
         ComponentButtonManager.singleton.favoriteComponents.Clear();
         foreach(Component c in ComponentButtonManager.singleton.registeredComponents)
         {
-            print(c.name);
             if(c.type == Component.Type.Custom)
             {
                 ComponentMenuItem newItem = Instantiate(componentPrefab, scrollListTransform).GetComponent<ComponentMenuItem>();

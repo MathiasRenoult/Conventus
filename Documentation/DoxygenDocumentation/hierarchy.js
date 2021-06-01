@@ -11,11 +11,13 @@ var hierarchy =
       [ "ComponentMenuItem", "class_component_menu_item.html", null ],
       [ "ComponentMenuManager", "class_component_menu_manager.html", null ],
       [ "ComponentsGraphicManager", "class_components_graphic_manager.html", null ],
+      [ "EditPanel", "class_edit_panel.html", null ],
       [ "ExpressionSolver", "class_expression_solver.html", null ],
       [ "NestingPanel", "class_nesting_panel.html", null ],
       [ "SaveManager", "class_save_manager.html", null ],
       [ "SelectionManager", "class_selection_manager.html", null ],
       [ "Simulation", "class_simulation.html", null ],
+      [ "UpBarButton", "class_up_bar_button.html", null ],
       [ "Wire", "class_wire.html", null ],
       [ "WireTool", "class_wire_tool.html", null ]
     ] ]

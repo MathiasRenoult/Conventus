@@ -91,6 +91,9 @@ $(document).ready(function(){initNavTree('class_component.html',''); initResizab
 <div class="title">Component Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class is one of the biggest class of the project. A component is an element which can be placed on the canvas and linked to other components. There's mainly two types of components : the gates and the custom. If a component has a "gate" type, the way the outputs are computed is much faster because its hardcoded.  
+ <a href="class_component.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Component:</div>
 <div class="dyncontent">
@@ -119,36 +122,36 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad3c10c2f196c925002d107fbcfaa05f5"><td class="memItemLeft" align="right" valign="top"><a id="ad3c10c2f196c925002d107fbcfaa05f5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Component</b> (<a class="el" href="class_component_data.html">ComponentData</a> data)</td></tr>
+<tr class="memitem:ad3c10c2f196c925002d107fbcfaa05f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#ad3c10c2f196c925002d107fbcfaa05f5">Component</a> (<a class="el" href="class_component_data.html">ComponentData</a> data)</td></tr>
+<tr class="memdesc:ad3c10c2f196c925002d107fbcfaa05f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor takes a "ComponentData" class as input and converts it to a regular "Component" class.  <a href="class_component.html#ad3c10c2f196c925002d107fbcfaa05f5">More...</a><br /></td></tr>
 <tr class="separator:ad3c10c2f196c925002d107fbcfaa05f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aade40cb001357d8b3671ec39d09bdce6"><td class="memItemLeft" align="right" valign="top"><a id="aade40cb001357d8b3671ec39d09bdce6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Move</b> (Vector2 pos, bool snapToGrid)</td></tr>
+<tr class="memitem:aade40cb001357d8b3671ec39d09bdce6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#aade40cb001357d8b3671ec39d09bdce6">Move</a> (Vector2 pos, bool snapToGrid)</td></tr>
+<tr class="memdesc:aade40cb001357d8b3671ec39d09bdce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the component to the wanted position. Usually the cursor position.  <a href="class_component.html#aade40cb001357d8b3671ec39d09bdce6">More...</a><br /></td></tr>
 <tr class="separator:aade40cb001357d8b3671ec39d09bdce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a830bde2d6f3125cd9dca6c530536b897"><td class="memItemLeft" align="right" valign="top"><a id="a830bde2d6f3125cd9dca6c530536b897"></a>
-Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>CountInputsOutputs</b> ()</td></tr>
+<tr class="memitem:a830bde2d6f3125cd9dca6c530536b897"><td class="memItemLeft" align="right" valign="top">Vector2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#a830bde2d6f3125cd9dca6c530536b897">CountInputsOutputs</a> ()</td></tr>
+<tr class="memdesc:a830bde2d6f3125cd9dca6c530536b897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyses all the IOs of the component and returns the number of inputs and outputs as a "Vector2".  <a href="class_component.html#a830bde2d6f3125cd9dca6c530536b897">More...</a><br /></td></tr>
 <tr class="separator:a830bde2d6f3125cd9dca6c530536b897"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38bbb633fe062f1895506bbe6759aa71"><td class="memItemLeft" align="right" valign="top"><a id="a38bbb633fe062f1895506bbe6759aa71"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateState</b> ()</td></tr>
-<tr class="separator:a38bbb633fe062f1895506bbe6759aa71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1332d2fe5ac89a8de2afff1aa00d6b95"><td class="memItemLeft" align="right" valign="top"><a id="a1332d2fe5ac89a8de2afff1aa00d6b95"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateCompGraphics</b> ()</td></tr>
+<tr class="memitem:a1332d2fe5ac89a8de2afff1aa00d6b95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#a1332d2fe5ac89a8de2afff1aa00d6b95">UpdateCompGraphics</a> ()</td></tr>
+<tr class="memdesc:a1332d2fe5ac89a8de2afff1aa00d6b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortcut to the function "SetCompGraphics".  <a href="class_component.html#a1332d2fe5ac89a8de2afff1aa00d6b95">More...</a><br /></td></tr>
 <tr class="separator:a1332d2fe5ac89a8de2afff1aa00d6b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4875005b4ae17bb45a361bc5e612a5f"><td class="memItemLeft" align="right" valign="top"><a id="ac4875005b4ae17bb45a361bc5e612a5f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetCompGraphics</b> (int index)</td></tr>
+<tr class="memitem:ac4875005b4ae17bb45a361bc5e612a5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#ac4875005b4ae17bb45a361bc5e612a5f">SetCompGraphics</a> (int index)</td></tr>
+<tr class="memdesc:ac4875005b4ae17bb45a361bc5e612a5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes an index and sets the component to the corresponding type according to the active gate norm. Updates the color of the component too.  <a href="class_component.html#ac4875005b4ae17bb45a361bc5e612a5f">More...</a><br /></td></tr>
 <tr class="separator:ac4875005b4ae17bb45a361bc5e612a5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbeb1738c7006a7d8bfbb1e80ecf75a1"><td class="memItemLeft" align="right" valign="top"><a id="adbeb1738c7006a7d8bfbb1e80ecf75a1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetCorrectGateType</b> (int index)</td></tr>
+<tr class="memitem:adbeb1738c7006a7d8bfbb1e80ecf75a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#adbeb1738c7006a7d8bfbb1e80ecf75a1">SetCorrectGateType</a> (int index)</td></tr>
+<tr class="memdesc:adbeb1738c7006a7d8bfbb1e80ecf75a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes an index and sets the corresponding type. Sets the correct number of IOs.  <a href="class_component.html#adbeb1738c7006a7d8bfbb1e80ecf75a1">More...</a><br /></td></tr>
 <tr class="separator:adbeb1738c7006a7d8bfbb1e80ecf75a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90d808ab14f0757a2fd05b05638d5e85"><td class="memItemLeft" align="right" valign="top"><a id="a90d808ab14f0757a2fd05b05638d5e85"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetGateProperties</b> ()</td></tr>
+<tr class="memitem:a90d808ab14f0757a2fd05b05638d5e85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#a90d808ab14f0757a2fd05b05638d5e85">SetGateProperties</a> ()</td></tr>
+<tr class="memdesc:a90d808ab14f0757a2fd05b05638d5e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the hitbox, inputs and outputs number, IOs positions and name of the component.  <a href="class_component.html#a90d808ab14f0757a2fd05b05638d5e85">More...</a><br /></td></tr>
 <tr class="separator:a90d808ab14f0757a2fd05b05638d5e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0edbbc890108c38280fbb863f0c4020"><td class="memItemLeft" align="right" valign="top"><a id="aa0edbbc890108c38280fbb863f0c4020"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ComputeOutputStates</b> ()</td></tr>
+<tr class="memitem:aa0edbbc890108c38280fbb863f0c4020"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#aa0edbbc890108c38280fbb863f0c4020">ComputeOutputStates</a> ()</td></tr>
+<tr class="memdesc:aa0edbbc890108c38280fbb863f0c4020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes inputs and sets the outputs to their correct state according to the type of the component or to the truth table.  <a href="class_component.html#aa0edbbc890108c38280fbb863f0c4020">More...</a><br /></td></tr>
 <tr class="separator:aa0edbbc890108c38280fbb863f0c4020"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7a5236530453ee860ed20c06642eefc"><td class="memItemLeft" align="right" valign="top"><a id="ae7a5236530453ee860ed20c06642eefc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>FlushComponent</b> ()</td></tr>
+<tr class="memitem:ae7a5236530453ee860ed20c06642eefc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#ae7a5236530453ee860ed20c06642eefc">FlushComponent</a> ()</td></tr>
+<tr class="memdesc:ae7a5236530453ee860ed20c06642eefc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares a component to delete it. Basically removes all the linked wires.  <a href="class_component.html#ae7a5236530453ee860ed20c06642eefc">More...</a><br /></td></tr>
 <tr class="separator:ae7a5236530453ee860ed20c06642eefc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a370ee9fe196a7dd711494109eb152765"><td class="memItemLeft" align="right" valign="top">Color&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#a370ee9fe196a7dd711494109eb152765">GetColorFromType</a> (Type type)</td></tr>
+<tr class="memdesc:a370ee9fe196a7dd711494109eb152765"><td class="mdescLeft">&#160;</td><td class="mdescRight">Each gate has his distinct color. This function returns it.  <a href="class_component.html#a370ee9fe196a7dd711494109eb152765">More...</a><br /></td></tr>
+<tr class="separator:a370ee9fe196a7dd711494109eb152765"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -192,8 +195,250 @@ Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>heldPoint</b></td>
 BoxCollider2D&#160;</td><td class="memItemRight" valign="bottom"><b>compCollider</b></td></tr>
 <tr class="separator:a0547f1d431e2dfde80ea8bf2bd8f0206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class is one of the biggest class of the project. A component is an element which can be placed on the canvas and linked to other components. There's mainly two types of components : the gates and the custom. If a component has a "gate" type, the way the outputs are computed is much faster because its hardcoded. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad3c10c2f196c925002d107fbcfaa05f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3c10c2f196c925002d107fbcfaa05f5">&#9670;&nbsp;</a></span>Component()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Component.Component </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_component_data.html">ComponentData</a>&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This constructor takes a "ComponentData" class as input and converts it to a regular "Component" class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The data used as model</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa0edbbc890108c38280fbb863f0c4020"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0edbbc890108c38280fbb863f0c4020">&#9670;&nbsp;</a></span>ComputeOutputStates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Component.ComputeOutputStates </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Takes inputs and sets the outputs to their correct state according to the type of the component or to the truth table. </p>
+
+</div>
+</div>
+<a id="a830bde2d6f3125cd9dca6c530536b897"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a830bde2d6f3125cd9dca6c530536b897">&#9670;&nbsp;</a></span>CountInputsOutputs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2 Component.CountInputsOutputs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Analyses all the IOs of the component and returns the number of inputs and outputs as a "Vector2". </p>
+<dl class="section return"><dt>Returns</dt><dd>Vector2 with x being the number of inputs and y the number of outputs</dd></dl>
+
+</div>
+</div>
+<a id="ae7a5236530453ee860ed20c06642eefc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7a5236530453ee860ed20c06642eefc">&#9670;&nbsp;</a></span>FlushComponent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Component.FlushComponent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prepares a component to delete it. Basically removes all the linked wires. </p>
+
+</div>
+</div>
+<a id="a370ee9fe196a7dd711494109eb152765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a370ee9fe196a7dd711494109eb152765">&#9670;&nbsp;</a></span>GetColorFromType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Color Component.GetColorFromType </td>
+          <td>(</td>
+          <td class="paramtype">Type&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Each gate has his distinct color. This function returns it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>Type we want the specific color from</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Color corresponding to the entered parameter</dd></dl>
+
+</div>
+</div>
+<a id="aade40cb001357d8b3671ec39d09bdce6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aade40cb001357d8b3671ec39d09bdce6">&#9670;&nbsp;</a></span>Move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Component.Move </td>
+          <td>(</td>
+          <td class="paramtype">Vector2&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>snapToGrid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Moves the component to the wanted position. Usually the cursor position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>Position to move to</td></tr>
+    <tr><td class="paramname">snapToGrid</td><td>Should the component snap to the grid ?</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac4875005b4ae17bb45a361bc5e612a5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4875005b4ae17bb45a361bc5e612a5f">&#9670;&nbsp;</a></span>SetCompGraphics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Component.SetCompGraphics </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Takes an index and sets the component to the corresponding type according to the active gate norm. Updates the color of the component too. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Index representing the type we want to set the component to</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adbeb1738c7006a7d8bfbb1e80ecf75a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbeb1738c7006a7d8bfbb1e80ecf75a1">&#9670;&nbsp;</a></span>SetCorrectGateType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Component.SetCorrectGateType </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Takes an index and sets the corresponding type. Sets the correct number of IOs. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Index of the type we want to set</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a90d808ab14f0757a2fd05b05638d5e85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90d808ab14f0757a2fd05b05638d5e85">&#9670;&nbsp;</a></span>SetGateProperties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Component.SetGateProperties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the hitbox, inputs and outputs number, IOs positions and name of the component. </p>
+
+</div>
+</div>
+<a id="a1332d2fe5ac89a8de2afff1aa00d6b95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1332d2fe5ac89a8de2afff1aa00d6b95">&#9670;&nbsp;</a></span>UpdateCompGraphics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Component.UpdateCompGraphics </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shortcut to the function "SetCompGraphics". </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Component.cs</li>
+<li>C:/Conventus/Conventus/Projet/Assets/Scripts/Component.cs</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

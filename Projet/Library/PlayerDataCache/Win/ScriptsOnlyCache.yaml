@@ -2,11 +2,19 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - AppManager
+    - CanvasIO
     - Component
     - ComponentButton
     - ComponentButtonManager
+    - ComponentMenuItem
+    - ComponentMenuManager
     - ComponentsGraphicManager
+    - EditPanel
+    - NestingPanel
+    - SaveManager
     - SelectionManager
+    - Simulation
+    - UpBarButton
     - Wire
     - WireTool
     Unity.2D.Animation.Editor.dll:
@@ -28,6 +36,7 @@ ScriptsOnlyBuild:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
+    - TMPro.TMP_InputField
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
@@ -43,7 +52,14 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.RectMask2D
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.Shadow
+    - UnityEngine.UI.Toggle
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -69,43 +85,75 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1474}
     - Class: 114
-      Script: {instanceID: 1526}
+      Script: {instanceID: 1476}
     - Class: 114
-      Script: {instanceID: 1586}
+      Script: {instanceID: 1528}
     - Class: 114
-      Script: {instanceID: 1804}
+      Script: {instanceID: 1562}
     - Class: 114
-      Script: {instanceID: 2112}
+      Script: {instanceID: 1570}
     - Class: 114
-      Script: {instanceID: 2350}
+      Script: {instanceID: 1590}
     - Class: 114
-      Script: {instanceID: 2492}
+      Script: {instanceID: 1644}
     - Class: 114
-      Script: {instanceID: 2646}
+      Script: {instanceID: 1656}
     - Class: 114
-      Script: {instanceID: 2690}
+      Script: {instanceID: 1668}
     - Class: 114
-      Script: {instanceID: 2732}
+      Script: {instanceID: 1734}
     - Class: 114
-      Script: {instanceID: 2774}
+      Script: {instanceID: 1810}
     - Class: 114
-      Script: {instanceID: 2830}
+      Script: {instanceID: 1848}
     - Class: 114
-      Script: {instanceID: 3042}
+      Script: {instanceID: 2122}
     - Class: 114
-      Script: {instanceID: 3798}
+      Script: {instanceID: 2360}
     - Class: 114
-      Script: {instanceID: 3806}
+      Script: {instanceID: 2502}
     - Class: 114
-      Script: {instanceID: 4298}
+      Script: {instanceID: 2656}
     - Class: 114
-      Script: {instanceID: 4378}
+      Script: {instanceID: 2700}
     - Class: 114
-      Script: {instanceID: 4630}
+      Script: {instanceID: 2742}
     - Class: 114
-      Script: {instanceID: 4752}
+      Script: {instanceID: 2784}
     - Class: 114
-      Script: {instanceID: 22874}
+      Script: {instanceID: 2840}
+    - Class: 114
+      Script: {instanceID: 2946}
+    - Class: 114
+      Script: {instanceID: 2952}
+    - Class: 114
+      Script: {instanceID: 3056}
+    - Class: 114
+      Script: {instanceID: 3064}
+    - Class: 114
+      Script: {instanceID: 3494}
+    - Class: 114
+      Script: {instanceID: 3780}
+    - Class: 114
+      Script: {instanceID: 3822}
+    - Class: 114
+      Script: {instanceID: 3854}
+    - Class: 114
+      Script: {instanceID: 4218}
+    - Class: 114
+      Script: {instanceID: 4294}
+    - Class: 114
+      Script: {instanceID: 4318}
+    - Class: 114
+      Script: {instanceID: 4398}
+    - Class: 114
+      Script: {instanceID: 4544}
+    - Class: 114
+      Script: {instanceID: 4652}
+    - Class: 114
+      Script: {instanceID: 4774}
+    - Class: 114
+      Script: {instanceID: 5074}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -135,6 +183,12 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
+      Hash: 134322c9293c1896357cce271b819ce4
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: EventTrigger
+  - hash:
+      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -153,7 +207,13 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
-      Hash: 5d08198836f693379c730891f92e0d7d
+      Hash: 8b3d6cee4bf13b63b01822d84c4c5f80
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EditPanel
+  - hash:
+      serializedVersion: 2
+      Hash: 8ce7b04f85c5e73d1e2ba0d39e991a91
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WireTool
@@ -195,6 +255,12 @@ ScriptsOnlyBuild:
     className: LayoutElement
   - hash:
       serializedVersion: 2
+      Hash: d6174ecf17dc0eda54073e9c1ea12415
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Simulation
+  - hash:
+      serializedVersion: 2
       Hash: 6bc76e17f0d5e93f3eea7f5a2fe227f3
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -223,6 +289,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_FontAsset
+  - hash:
+      serializedVersion: 2
+      Hash: f8aff95c1fe874a5967581508d5bdafe
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NestingPanel
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -279,7 +351,7 @@ ScriptsOnlyBuild:
     className: IKManager2D
   - hash:
       serializedVersion: 2
-      Hash: 106cb6ea1a8e4f1a067d8e79948ff7de
+      Hash: 4d4f97a57a5176b1485cf2ebc1cc82d7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ComponentsGraphicManager
@@ -339,7 +411,7 @@ ScriptsOnlyBuild:
     className: ComponentButton
   - hash:
       serializedVersion: 2
-      Hash: 4469fbf5ec41f810f061f84d9c5e5f91
+      Hash: 547343b0b0482affe05f73f8963b1e77
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AppManager
@@ -385,6 +457,18 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: TestResultRendererCallback
+  - hash:
+      serializedVersion: 2
+      Hash: 396d46c590316d9aedf37a4df9437618
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ComponentMenuManager
+  - hash:
+      serializedVersion: 2
+      Hash: 6059f9b8098f6840886604f9b0dd54d7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SaveManager
   - hash:
       serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
@@ -453,6 +537,12 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
+      Hash: 11d662a92e7a33b9c183342918e4656e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ComponentMenuItem
+  - hash:
+      serializedVersion: 2
       Hash: 3164bc883ff663a5cdb32d1ef7e7c0c5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -507,22 +597,28 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: d1f5c377b1a42f8f3bc7bfbdeb5cc311
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Wire
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 134322c9293c1896357cce271b819ce4
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.EventSystems
-    className: EventTrigger
-  - hash:
-      serializedVersion: 2
-      Hash: 7841d206a6a73fb5fe9f79bec3d3dcd6
+      Hash: 567d47521bf43fc43af6b9c32628d3d3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ComponentButtonManager
+  - hash:
+      serializedVersion: 2
+      Hash: 28f5c7cc53d869fa6512e8a079891d84
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UpBarButton
   - hash:
       serializedVersion: 2
       Hash: 87cef3c82381dc586f6772c3e27561b6
@@ -627,7 +723,7 @@ ScriptsOnlyBuild:
     className: SpriteSkinEntity
   - hash:
       serializedVersion: 2
-      Hash: 1b5476248744515b62e1d5d62202465f
+      Hash: d2688a67150a32a7e1dee4c7f72a1314
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Component
@@ -651,6 +747,12 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
+      Hash: 049141fbb27ef2e78c32bd91aeb3df45
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CanvasIO
+  - hash:
+      serializedVersion: 2
       Hash: 5cc439bf63c0539d39588e69465ac2ab
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -663,7 +765,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 8ad12485854b31d9539f178b4d26287b
+      Hash: 78f56f923c9670c7fcb225c59bf3a1d1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SelectionManager
@@ -697,12 +799,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
-  - hash:
-      serializedVersion: 2
-      Hash: a5d45ab36960e7ee79ef5405bccd1f44
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Wire
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

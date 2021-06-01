@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.IO;
 /// <summary>
 /// The App Manager is the central class of the application. It manages components on the canvas, 
 /// selected components, wires, some UI, canvas IO, mouse position and some keystrokes.
@@ -9,6 +10,7 @@ using System;
 public class AppManager : MonoBehaviour
 {
     public static AppManager singleton;
+    public Transform mainCanvas;
     public GameObject componentPrefab;
     public List<Component> components = new List<Component>();
     public List<Component> selectedComponents = new List<Component>();
@@ -25,6 +27,7 @@ public class AppManager : MonoBehaviour
     public List<CanvasIO> outputs = new List<CanvasIO>();
     public Vector2 mousePos;
     public Vector2 oldMousePos;
+    public int fileCounter;
     public bool rightBorder; // true if pointer is on right border
     public bool leftShift;
     void Awake()
@@ -32,6 +35,7 @@ public class AppManager : MonoBehaviour
         singleton = this;
         Application.targetFrameRate = 100;
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        fileCounter = PlayerPrefs.GetInt("FileCounter");
     }
     void Update()
     {
@@ -232,7 +236,6 @@ public class AppManager : MonoBehaviour
         else
         {
             newComp.name = newComp.compName = name;
-            print(newComp.name);
         }
         if(color != new Color(-1f, -1f, -1f))
         {
@@ -298,6 +301,10 @@ public class AppManager : MonoBehaviour
         
         return truthTable;
     }
+    /// <summary>
+    /// Selects a component thus setting it as "grabbed" by the cursor
+    /// </summary>
+    /// <param name="c">Component to select.</param>
     public void SelectComponent(Component c)
     {
         c.held = !c.held;
@@ -310,7 +317,9 @@ public class AppManager : MonoBehaviour
             selectedComponents.Remove(c);
         }
     }
-
+    /// <summary>
+    /// Deselect all selected compenents. Basically clears the "selectedComponents" list.
+    /// </summary>
     public void DeselectAllSelectedComponents()
     {
         foreach(Component c in selectedComponents)
@@ -318,5 +327,35 @@ public class AppManager : MonoBehaviour
             c.held = false;
         }
         selectedComponents.Clear();
+    }
+    /// <summary>
+    /// Clear the canvas by destroying every component on it.
+    /// </summary>
+    public void ClearCanvas()
+    {
+        foreach(Component c in components)
+        {
+            c.FlushComponent();
+            Destroy(c.gameObject);
+            print("Destroyed !");
+        }
+        components.Clear();
+    }
+    /// <summary>
+    /// Take a screenshot of the screen and saves it as PNG
+    /// Code taken from : https://docs.unity3d.com/ScriptReference/ScreenCapture.html
+    /// </summary>
+    public void Capture()
+    {
+        if(!Directory.Exists(Application.persistentDataPath + "/Backgrounds"))
+        {
+            Directory.CreateDirectory(Application.persistentDataPath + "/Backgrounds");
+        }
+        mainCanvas.gameObject.SetActive(false);
+        Camera.main.Render();
+        ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/Backgrounds/" + fileCounter + ".png", 4);
+        fileCounter++;
+        PlayerPrefs.SetInt("FileCounter", fileCounter);
+        mainCanvas.gameObject.SetActive(true);
     }
 }

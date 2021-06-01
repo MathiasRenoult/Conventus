@@ -2,6 +2,7 @@ var class_component_button_manager =
 [
     [ "OpenCloseComponentMenu", "class_component_button_manager.html#afca33057be9724ff213dba07693a29c8", null ],
     [ "RefreshButtons", "class_component_button_manager.html#ac9f70633884ed34dd303b7c3deef7af4", null ],
+    [ "buttonBaseColor", "class_component_button_manager.html#af58c55a15fa50ddb44ad56179652dfbe", null ],
     [ "buttons", "class_component_button_manager.html#a6acbed10d48d0e28d0ab5601d86881d8", null ],
     [ "componentMenuButton", "class_component_button_manager.html#ad4070a0a1f2576b17d2a9588e9181d66", null ],
     [ "componentMenuPanel", "class_component_button_manager.html#a8bddbaf8fcadef2ac5e1b80e313c42e1", null ],

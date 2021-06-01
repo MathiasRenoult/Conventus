@@ -16,7 +16,7 @@ public class WireTool : MonoBehaviour
     public Color onColor;
     public Color offColor;
     public float timeToProgress = 2f;
-    public float sensitivity = 0.5f;
+    public float sensitivity = 50f;
     void Awake()
     {
         singleton = this;
@@ -31,42 +31,50 @@ public class WireTool : MonoBehaviour
     void UpdateDotPosAndState()
     {
         selectDot.gameObject.SetActive(false);
+        selectDot.transform.localScale = new Vector2(Camera.main.orthographicSize / 30f, Camera.main.orthographicSize / 30f);
         currentIO = null;
         currentPointPos = Vector2.zero;
+        IO closestPoint = new IO(false, false, Vector2.zero, null, null);
+        float shortestDistance = Mathf.Infinity;
+        bool foundIO = false;
         foreach(Component c in AppManager.singleton.components)
         {
             foreach(IO i in c.ios)
             {
-                if((mousePos-i.pos).magnitude < sensitivity)
+                if((Input.mousePosition-Camera.main.WorldToScreenPoint(i.pos)).magnitude < sensitivity && (Input.mousePosition-Camera.main.WorldToScreenPoint(i.pos)).magnitude < shortestDistance)
                 {
-                    selectDot.gameObject.SetActive(true);
-                    selectDot.transform.position = i.pos;
-                    currentIO = i;
-                    currentPointPos = i.pos;
+                    closestPoint = i;
+                    shortestDistance = (Input.mousePosition-Camera.main.WorldToScreenPoint(i.pos)).magnitude;
+                    foundIO = true;
                 }
             }
         }
         foreach(CanvasIO c in AppManager.singleton.inputs)
         {
-            if((c.io.pos - mousePos).magnitude < sensitivity)
+            if((Input.mousePosition-Camera.main.WorldToScreenPoint(c.io.pos)).magnitude < sensitivity && (Input.mousePosition-Camera.main.WorldToScreenPoint(c.io.pos)).magnitude < shortestDistance)
             {
-                selectDot.gameObject.SetActive(true);
-                selectDot.transform.position = c.io.pos;
-                currentIO = c.io;
-                currentPointPos = c.io.pos;
+                closestPoint = c.io;
+                shortestDistance = (Input.mousePosition-Camera.main.WorldToScreenPoint(c.io.pos)).magnitude;
+                foundIO = true;
             }
         }
         foreach(CanvasIO c in AppManager.singleton.outputs)
         {
-            if((c.io.pos - mousePos).magnitude < sensitivity)
+            if((Input.mousePosition-Camera.main.WorldToScreenPoint(c.io.pos)).magnitude < sensitivity && (Input.mousePosition-Camera.main.WorldToScreenPoint(c.io.pos)).magnitude < shortestDistance)
             {
-                selectDot.gameObject.SetActive(true);
-                selectDot.transform.position = c.io.pos;
-                currentIO = c.io;
-                currentPointPos = c.io.pos;
+                closestPoint = c.io;
+                shortestDistance = (Input.mousePosition-Camera.main.WorldToScreenPoint(c.io.pos)).magnitude;
+                foundIO = true;
             }
         }
-
+        if(foundIO)
+        {
+            selectDot.gameObject.SetActive(true);
+            selectDot.transform.position = closestPoint.pos;
+            currentIO = closestPoint;
+            currentPointPos = closestPoint.pos;
+        }
+       
         if(currentIO != null)
         {
             if(Input.GetMouseButtonDown(0))

@@ -1,6 +1,8 @@
 var class_component_menu_item =
 [
     [ "ClosePanel", "class_component_menu_item.html#a1e86c7a0601bb79257947f195dfcc21a", null ],
+    [ "DeleteItem", "class_component_menu_item.html#a613c6659e509ffb0b2f77461a6d463cb", null ],
+    [ "EditItem", "class_component_menu_item.html#a429fc76f5aaf8ac6b18e15076b4d8263", null ],
     [ "InstantiateComponent", "class_component_menu_item.html#af1c4d15a9edd96a6a9fbe4f4a775b499", null ],
     [ "background", "class_component_menu_item.html#aaeba41ea6892220dc42db7904558bbe9", null ],
     [ "color", "class_component_menu_item.html#a5b873e61e65f817a0bb3b32b5fd89110", null ],

@@ -39,6 +39,8 @@ public class NestingPanel : MonoBehaviour
             ComponentButtonManager.singleton.registeredComponents.Add(newComp);
             print("New component added !");
         }
+
+        SaveManager.singleton.SaveComponents();
     }
 
     public Color StringToColor(string colorString)

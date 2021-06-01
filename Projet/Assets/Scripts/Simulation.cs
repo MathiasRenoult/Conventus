@@ -5,7 +5,10 @@ using UnityEngine;
 public class Simulation : MonoBehaviour
 {
     public static Simulation singleton;
+    public List<IO> alreadyComputed = new List<IO>();
     public bool simulating;
+    public int stepLimit = 1000;
+    public int stepCounter;
 
     private void Awake()
     {
@@ -21,6 +24,8 @@ public class Simulation : MonoBehaviour
 
     public void RefreshState()
     {
+        stepCounter = 0;
+        alreadyComputed.Clear();
         List<IO> nextStep = new List<IO>();
         foreach(CanvasIO c in AppManager.singleton.inputs)
         {
@@ -38,6 +43,7 @@ public class Simulation : MonoBehaviour
 
     public void ComputeNextStep(List<IO> ios)
     {
+        stepCounter++;
         List<IO> nextStep = new List<IO>();
         foreach(IO i in ios)
         {
@@ -57,7 +63,20 @@ public class Simulation : MonoBehaviour
                 }
             }
         }
-        if(nextStep.Count > 0)
+        List<IO> toRemove = new List<IO>();
+        foreach(IO i in nextStep)
+        {
+            if(alreadyComputed.Find(x => x.pos == i.pos) != null)
+            {
+                toRemove.Add(i);
+            }
+        }
+        foreach(IO i in toRemove)
+        {
+            nextStep.Remove(i);
+        }
+        alreadyComputed.AddRange(nextStep);
+        if(nextStep.Count > 0 && stepCounter < stepLimit)
         {
             ComputeNextStep(nextStep);
         }
