@@ -11,7 +11,7 @@ public class ComponentData
     public int type;
     public int inputs;
     public int outputs;
-    public int[] truthTable;
+    public ulong[] truthTable;
     /// <summary>
     /// Constructor converting a component to a componentData ready to be serialized.
     /// </summary>

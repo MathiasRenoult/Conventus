@@ -2,17 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
+/// <summary>
+/// This class is used by the nesting panel only. It's used when you create a new component.
+/// </summary>
 public class NestingPanel : MonoBehaviour
 {   
-    public TMPro.TMP_InputField nameInputField;
-    public TMPro.TMP_InputField colorInputField;
+    public TMP_InputField nameInputField;
+    public TMP_InputField colorInputField;
     public Toggle randomColorToggle;
+    /// <summary>
+    /// Flips the state (visibility) of the panel; on / off.
+    /// </summary>
     public void EnableDisablePanel()
     {
         gameObject.SetActive(!gameObject.activeSelf);
     }
-
+    /// <summary>
+    /// Called when the "create" button is clicked. It takes the elements on the canvas, and the panel parameters
+    /// and creates a new component stored in the files.
+    /// </summary>
     public void CreateComponent()
     {
         bool correct = true;
@@ -42,7 +51,11 @@ public class NestingPanel : MonoBehaviour
 
         SaveManager.singleton.SaveComponents();
     }
-
+    /// <summary>
+    /// Takes a string to the standard html hexadecimal format (#0123def) and converts it the correct color.
+    /// </summary>
+    /// <param name="colorString">The string we want to parse</param>
+    /// <returns>The color interpreted from the string</returns>
     public Color StringToColor(string colorString)
     {
         Color colorColor;

@@ -18,7 +18,7 @@ public class Component : MonoBehaviour
     public string boolExpression;
     public string compName;
     public Color color = Color.cyan;
-    public int[] truthTable;
+    public ulong[] truthTable;
     public bool truthTableDone = false;
     public Type type = Type.Unset;
     public bool held;

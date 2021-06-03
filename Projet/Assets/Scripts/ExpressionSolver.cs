@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Deprecated class. It was used to converts truth table to boolean expressions.
+/// </summary>
 public class ExpressionSolver : MonoBehaviour
 {
     public string CreateExpressionFromComponents(List<Component> components)

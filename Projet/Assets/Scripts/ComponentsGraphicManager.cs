@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.VectorGraphics;
-
+/// <summary>
+/// This class is used to store different graphical norms for logic gates.
+/// </summary>
 public class ComponentsGraphicManager : MonoBehaviour
 {
     public enum LogicGatesStandard {ANSI, IEC, DIN};

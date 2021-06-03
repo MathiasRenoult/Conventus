@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// This class is the one managing the selection of the gates and moving them.
+/// </summary>
 public class SelectionManager : MonoBehaviour
 {
     public static SelectionManager singleton;
@@ -77,7 +79,9 @@ public class SelectionManager : MonoBehaviour
             }  
         }
     }
-
+    /// <summary>
+    /// This little function is called each time we enter OR leave the trash zone.
+    /// </summary>
     public void SetOnTrash()
     {
         onTrash = !onTrash;

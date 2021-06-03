@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
+/// <summary>
+/// This class is only used with the edit panel. It allows the user to modify an already registered component.
+/// </summary>
 public class EditPanel : MonoBehaviour
 {
     public static EditPanel singleton;
     public Transform editPanelTransform;
     public Component currentlyEditedComponent;
-    public TMPro.TMP_InputField nameInput;
-    public TMPro.TMP_InputField colorInput;
+    public TMP_InputField nameInput;
+    public TMP_InputField colorInput;
     public Color chosenColor;
     public UnityEngine.UI.Toggle toggle;
 
@@ -23,6 +26,10 @@ public class EditPanel : MonoBehaviour
         currentlyEditedComponent = null;
         gameObject.SetActive(false);
     }
+    /// <summary>
+    /// When the "validate" button is clicked, this function is called and verifies that the user's entries are correct.
+    /// Then if modifies the correct component in function.
+    /// </summary>
     public void Validate()
     {
         bool correct = true;
@@ -67,7 +74,11 @@ public class EditPanel : MonoBehaviour
             print("Component modified !");
         }
     }
-
+    /// <summary>
+    /// Takes a string to the standard html hexadecimal format (#0123def) and converts it the correct color.
+    /// </summary>
+    /// <param name="colorString">The string we want to parse</param>
+    /// <returns>The color interpreted from the string</returns>
     public Color StringToColor(string colorString)
     {
         Color colorColor;

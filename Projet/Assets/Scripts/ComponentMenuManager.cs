@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Manages saved components and display them in a scrollable panel.
+/// </summary>
 public class ComponentMenuManager : MonoBehaviour
 {
    public static ComponentMenuManager singleton;
@@ -27,6 +29,9 @@ public class ComponentMenuManager : MonoBehaviour
             componentMenuPanel.transform.position = new Vector3(componentMenuButton.transform.position.x, componentMenuPanel.transform.position.y, 0f);
         }
     }
+    /// <summary>
+    /// Destroys every element in the component list.
+    /// </summary>
     void DestroyList()
     {
         List<GameObject> toDestroy = new List<GameObject>();
@@ -40,6 +45,9 @@ public class ComponentMenuManager : MonoBehaviour
             Destroy(g.gameObject);
         }
     }
+    /// <summary>
+    /// Takes every basic logic gate and creates a shortcut button on the interface for it.
+    /// </summary>
     public void InstantiateRegisteredComponents()
     {
         DestroyList();

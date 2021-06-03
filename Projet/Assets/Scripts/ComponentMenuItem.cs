@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 /// <summary>
 /// This class is used on items we see in the component menu. Each item has his own script.
 /// </summary>
@@ -9,9 +10,9 @@ public class ComponentMenuItem : MonoBehaviour
 {
     public Button editButton;
     public Button deleteButton;
-    public TMPro.TextMeshProUGUI inputText;
-    public TMPro.TextMeshProUGUI outputText;
-    public TMPro.TextMeshProUGUI nameText;
+    public TextMeshProUGUI inputText;
+    public TextMeshProUGUI outputText;
+    public TextMeshProUGUI nameText;
     public Color color;
     public Image background;
     public Component linkedComponent;

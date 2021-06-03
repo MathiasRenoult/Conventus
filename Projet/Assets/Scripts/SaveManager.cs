@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+/// <summary>
+/// This class it the one managing app files. It saves and loads components when needed.
+/// </summary>
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager singleton;
@@ -37,6 +40,11 @@ public class SaveManager : MonoBehaviour
             LoadComponents();
         }
     }
+    /// <summary>
+    /// Takes a string corresponding to the old file we wante to modify and changes it with the new wanted name.
+    /// </summary>
+    /// <param name="oldFileName">Old file name, without extension</param>
+    /// <param name="newFileName">New file name, without extension</param>
     public void ChangeFileName(string oldFileName, string newFileName)
     {
         foreach (string file in System.IO.Directory.GetFiles(path))
@@ -53,6 +61,10 @@ public class SaveManager : MonoBehaviour
         LoadComponents();
         print("File changed name !");
     }
+    /// <summary>
+    /// This function deletes a specified component in the files.
+    /// </summary>
+    /// <param name="fileName">Name of the component file to delete</param>
     public void DeleteFile(string fileName)
     {
         foreach (string file in System.IO.Directory.GetFiles(path))
@@ -66,6 +78,10 @@ public class SaveManager : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Deletes a specified component (in the code and the save file).
+    /// </summary>
+    /// <param name="component">Reference to the component to delete</param>
     public void DeleteComponent(Component component)
     {
         ComponentButtonManager.singleton.registeredComponents.Remove(component);
@@ -92,6 +108,9 @@ public class SaveManager : MonoBehaviour
             print("Saved !");
         }
     }
+    /// <summary>
+    /// Loads all saved components into the RAM.
+    /// </summary>
     public void LoadComponents()
     {
         if(ComponentButtonManager.singleton.registeredComponents != null)

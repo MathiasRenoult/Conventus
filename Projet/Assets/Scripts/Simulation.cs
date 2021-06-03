@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Manages the circuits simulation.
+/// </summary>
 public class Simulation : MonoBehaviour
 {
     public static Simulation singleton;
@@ -21,7 +23,9 @@ public class Simulation : MonoBehaviour
             RefreshState();
         }
     }
-
+    /// <summary>
+    /// Recursively simulates each gate on the canvas and sets the correct states to the IOs.
+    /// </summary>
     public void RefreshState()
     {
         stepCounter = 0;
@@ -40,7 +44,10 @@ public class Simulation : MonoBehaviour
         }
         ComputeNextStep(nextStep);
     }
-
+    /// <summary>
+    /// Recursive function used to compute a set number of IOs and components.
+    /// </summary>
+    /// <param name="ios"></param>
     public void ComputeNextStep(List<IO> ios)
     {
         stepCounter++;

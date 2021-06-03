@@ -224,7 +224,7 @@ public class AppManager : MonoBehaviour
     /// <param name="outputs">Number of outputs</param>
     /// <param name="truthTable">Truth table of the component as a simple int array. Would be converted to a bool array later.</param>
     /// <returns></returns>
-    public Component CreateComponent(Component.Type type, Color color, string name, int inputs = 0, int outputs = 0, int[] truthTable = null)
+    public Component CreateComponent(Component.Type type, Color color, string name, int inputs = 0, int outputs = 0, ulong[] truthTable = null)
     {
         Component newComp = Instantiate(componentPrefab, this.transform).GetComponent<Component>();
         newComp.type = type;
@@ -281,24 +281,29 @@ public class AppManager : MonoBehaviour
     /// This function uses the already set truth table to compute the correct outputs. 
     /// </summary>
     /// <returns></returns>
-    public int[] ComputeCurrentTruthTable()
+    public ulong[] ComputeCurrentTruthTable()
     {
         int size = (int)Mathf.Pow(2, inputs.Count);
-        int[] truthTable = new int[size * outputs.Count];
+        print(size * outputs.Count);
+        ulong[] truthTable = new ulong[size * outputs.Count];
+
         for(int i = 0; i < size; i++)
         {
             string binary = Convert.ToString(i, 2).PadLeft(inputs.Count, '0');
+
             for(int j = 0; j < binary.Length; j++)
             {
                 inputs[j].io.state = binary[j] == '1' ? true : false;
             }
+
             Simulation.singleton.RefreshState();
+
             for(int j = 0; j<outputs.Count; j++)
             {
-                truthTable[(i*outputs.Count)+j] = outputs[j].io.state == true ? 1 : 0;
+                truthTable[(i*outputs.Count)+j] = outputs[j].io.state == true ? (ulong)1 : (ulong)0;
             } 
         }
-        
+
         return truthTable;
     }
     /// <summary>

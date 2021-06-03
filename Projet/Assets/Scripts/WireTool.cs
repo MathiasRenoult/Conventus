@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Tool used to links IOs together.
+/// </summary>
 public class WireTool : MonoBehaviour
 {
     public static WireTool singleton;
@@ -27,7 +29,9 @@ public class WireTool : MonoBehaviour
         UpdateDotPosAndState();
         UpdateColors();
     }
-
+    /// <summary>
+    /// Update the "help dot" position, state and size, according to the cursor position and the camera zoom level.
+    /// </summary>
     void UpdateDotPosAndState()
     {
         selectDot.gameObject.SetActive(false);
@@ -100,7 +104,9 @@ public class WireTool : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// Starts a new wire.
+    /// </summary>
     public void StartWiring()
     {
         wiring = true;
@@ -108,7 +114,9 @@ public class WireTool : MonoBehaviour
         currentWire = Instantiate(wirePrefab).GetComponent<Wire>();
         currentWire.start = currentIO;
     }
-
+    /// <summary>
+    /// Ends the wire. Either destroys it if the wire is invalid or creates it.
+    /// </summary>
     public void StopWiring()
     {
         wiring = false;
@@ -127,11 +135,17 @@ public class WireTool : MonoBehaviour
             Destroy(currentWire.gameObject);
         }
     }
-
+    /// <summary>
+    /// Update the position of the wire while we're still creating it.
+    /// </summary>
     public void UpdateWiring()
     {
         if(startIO != null && currentWire != null && mousePos != null) currentWire.SetPositions(startIO.pos, mousePos);
     }
+    /// <summary>
+    /// Destroys all the wires linked to the specified IO.
+    /// </summary>
+    /// <param name="io">The specified IO</param>
     public void DestroyWires(IO io)
     {
         List<Wire> wires = new List<Wire>();
@@ -144,6 +158,10 @@ public class WireTool : MonoBehaviour
         }
         DestroyWires(wires.ToArray());
     }
+    /// <summary>
+    /// Takes an array of wires and destroys all of them.
+    /// </summary>
+    /// <param name="wires">The array of wires to destroy</param>
     public void DestroyWires(Wire[] wires)
     {
         foreach(Wire w in wires)
@@ -151,6 +169,10 @@ public class WireTool : MonoBehaviour
             DestroyWire(w);
         }
     }
+    /// <summary>
+    /// Takes a specific wire and destroys it.
+    /// </summary>
+    /// <param name="wire">The wire to destroy</param>
     public void DestroyWire(Wire wire)
     {
         wire.end.linkedIOS.Remove(wire.start);
@@ -158,7 +180,9 @@ public class WireTool : MonoBehaviour
         AppManager.singleton.wires.Remove(wire);
         Destroy(wire.gameObject);
     }
-
+    /// <summary>
+    /// Updates the colors of the wires according to the simulation computed states. (green or red, on or off)
+    /// </summary>
     public void UpdateColors()
     {
         if(Simulation.singleton.simulating)
