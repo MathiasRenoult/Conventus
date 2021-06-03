@@ -18,8 +18,11 @@ public class SaveManager : MonoBehaviour
         if(!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);
+            AppManager.singleton.CreateBasicGates();
+            print("Gates created !");
         }
-        SaveManager.singleton.LoadComponents();
+        SaveComponents();
+        LoadComponents();
     }
 
     void Update()

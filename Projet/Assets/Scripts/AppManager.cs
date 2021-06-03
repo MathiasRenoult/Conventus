@@ -358,4 +358,35 @@ public class AppManager : MonoBehaviour
         PlayerPrefs.SetInt("FileCounter", fileCounter);
         mainCanvas.gameObject.SetActive(true);
     }
+    /// <summary>
+    /// Creates all 8 base gates. Only used first time app is launched.
+    /// </summary>
+    public void CreateBasicGates()
+    {
+        Component nComp;
+        nComp = AppManager.singleton.CreateComponent(Component.Type.Buffer, new Color(-1f,-1f,-1f), null, 1, 1, null);
+        ComponentButtonManager.singleton.registeredComponents.Add(nComp);
+        ComponentButtonManager.singleton.favoriteComponents.Add(nComp);
+        nComp = AppManager.singleton.CreateComponent(Component.Type.NOT, new Color(-1f,-1f,-1f), null, 1, 1, null);
+        ComponentButtonManager.singleton.registeredComponents.Add(nComp);
+        ComponentButtonManager.singleton.favoriteComponents.Add(nComp);
+        nComp = AppManager.singleton.CreateComponent(Component.Type.AND, new Color(-1f,-1f,-1f), null, 2, 1, null);
+        ComponentButtonManager.singleton.registeredComponents.Add(nComp);
+        ComponentButtonManager.singleton.favoriteComponents.Add(nComp);
+        nComp = AppManager.singleton.CreateComponent(Component.Type.OR, new Color(-1f,-1f,-1f), null, 2, 1, null);
+        ComponentButtonManager.singleton.registeredComponents.Add(nComp);
+        ComponentButtonManager.singleton.favoriteComponents.Add(nComp);
+        nComp = AppManager.singleton.CreateComponent(Component.Type.XOR, new Color(-1f,-1f,-1f), null, 2, 1, null);
+        ComponentButtonManager.singleton.registeredComponents.Add(nComp);
+        ComponentButtonManager.singleton.favoriteComponents.Add(nComp);
+        nComp = AppManager.singleton.CreateComponent(Component.Type.NAND, new Color(-1f,-1f,-1f), null, 2, 1, null);
+        ComponentButtonManager.singleton.registeredComponents.Add(nComp);
+        ComponentButtonManager.singleton.favoriteComponents.Add(nComp);
+        nComp = AppManager.singleton.CreateComponent(Component.Type.NOR, new Color(-1f,-1f,-1f), null, 2, 1, null);
+        ComponentButtonManager.singleton.registeredComponents.Add(nComp);
+        ComponentButtonManager.singleton.favoriteComponents.Add(nComp);
+        nComp = AppManager.singleton.CreateComponent(Component.Type.XNOR, new Color(-1f,-1f,-1f), null, 2, 1, null);
+        ComponentButtonManager.singleton.registeredComponents.Add(nComp);
+        ComponentButtonManager.singleton.favoriteComponents.Add(nComp);
+    }
 }
