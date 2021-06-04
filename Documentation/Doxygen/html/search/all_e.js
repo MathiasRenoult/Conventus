@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['savebutton_57',['SaveButton',['../class_up_bar_button.html#a8b7af17701172b02233977d7b587f917',1,'UpBarButton']]],
+  ['savecomponents_58',['SaveComponents',['../class_save_manager.html#ae172e4611f5ca474233cc9e75eb43cad',1,'SaveManager']]],
+  ['savemanager_59',['SaveManager',['../class_save_manager.html',1,'']]],
+  ['selectcomponent_60',['SelectComponent',['../class_app_manager.html#abafd697cf47ab632ea9eb28c619ca4d9',1,'AppManager']]],
+  ['selectionmanager_61',['SelectionManager',['../class_selection_manager.html',1,'']]],
+  ['setcolor_62',['SetColor',['../class_component_button.html#afc98311fefe0db50777e41c51abf7dbd',1,'ComponentButton']]],
+  ['setcolors_63',['SetColors',['../class_wire.html#a638a8c7e4bd6e02b50bc2a9c11a8a2a4',1,'Wire']]],
+  ['setcompgraphics_64',['SetCompGraphics',['../class_component.html#ac4875005b4ae17bb45a361bc5e612a5f',1,'Component']]],
+  ['setcorrectgatetype_65',['SetCorrectGateType',['../class_component.html#adbeb1738c7006a7d8bfbb1e80ecf75a1',1,'Component']]],
+  ['setgateproperties_66',['SetGateProperties',['../class_component.html#a90d808ab14f0757a2fd05b05638d5e85',1,'Component']]],
+  ['setnorm_67',['SetNorm',['../class_up_bar_button.html#ac11a0ec068f5836cf7d8e74b150d27eb',1,'UpBarButton']]],
+  ['setonoffleftborder_68',['SetOnOffLeftBorder',['../class_app_manager.html#a4481d374ba9818fe081579f3111a5a7c',1,'AppManager']]],
+  ['setonoffrightborder_69',['SetOnOffRightBorder',['../class_app_manager.html#ac23b892e2d9fbdb47e331e50bbd5ee67',1,'AppManager']]],
+  ['setontrash_70',['SetOnTrash',['../class_selection_manager.html#ac396ec914f04582492188a6d313e8e09',1,'SelectionManager']]],
+  ['setpositions_71',['SetPositions',['../class_wire.html#ae6c39f20d3bffcda4ad3ddb6c36a390b',1,'Wire']]],
+  ['setstate_72',['SetState',['../class_wire.html#abdde5069c13383cd2f65d343eb0f531a',1,'Wire']]],
+  ['settext_73',['SetText',['../class_component_button.html#a2ed6382ad218d294fcfe773e5229517d',1,'ComponentButton']]],
+  ['simulatebutton_74',['SimulateButton',['../class_up_bar_button.html#a6c32a24b87fa4c003a8eab337e133a0f',1,'UpBarButton']]],
+  ['simulation_75',['Simulation',['../class_simulation.html',1,'']]],
+  ['startwiring_76',['StartWiring',['../class_wire_tool.html#ad87e6aecc0b1585406db03ff4e07fd22',1,'WireTool']]],
+  ['stopwiring_77',['StopWiring',['../class_wire_tool.html#ab20d976489ead03200428154baf1ac54',1,'WireTool']]],
+  ['stringtocolor_78',['StringToColor',['../class_edit_panel.html#a55286630a984e11beebaa8a09534a55c',1,'EditPanel.StringToColor()'],['../class_nesting_panel.html#a1c38a4a9a081133c429e802799ed7a1f',1,'NestingPanel.StringToColor()']]]
+];

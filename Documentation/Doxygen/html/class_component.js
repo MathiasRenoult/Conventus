@@ -1,0 +1,38 @@
+var class_component =
+[
+    [ "Type", "class_component.html#afd50861fbf83f7ff7777a5e6dd7b7ca4", [
+      [ "Buffer", "class_component.html#afd50861fbf83f7ff7777a5e6dd7b7ca4a7e62bc342f41c946868f0ea6f0b712d8", null ],
+      [ "NOT", "class_component.html#afd50861fbf83f7ff7777a5e6dd7b7ca4a10df3d67626099df882920ba6552f16d", null ],
+      [ "AND", "class_component.html#afd50861fbf83f7ff7777a5e6dd7b7ca4a558ffc8f5770d8e4f95f51d822685532", null ],
+      [ "OR", "class_component.html#afd50861fbf83f7ff7777a5e6dd7b7ca4a1d00e7dce692e8dc3f6877f035e3a616", null ],
+      [ "XOR", "class_component.html#afd50861fbf83f7ff7777a5e6dd7b7ca4a97675eb3f268048604dc5155511a2a4d", null ],
+      [ "NAND", "class_component.html#afd50861fbf83f7ff7777a5e6dd7b7ca4a3be5b8730412d64c809e4d73ce34649f", null ],
+      [ "NOR", "class_component.html#afd50861fbf83f7ff7777a5e6dd7b7ca4a11d451c440c4cc34a0238a0482f1c6da", null ],
+      [ "XNOR", "class_component.html#afd50861fbf83f7ff7777a5e6dd7b7ca4ae0bc92b7348630a0aaeb871c22a5a584", null ],
+      [ "Custom", "class_component.html#afd50861fbf83f7ff7777a5e6dd7b7ca4a90589c47f06eb971d548591f23c285af", null ],
+      [ "Unset", "class_component.html#afd50861fbf83f7ff7777a5e6dd7b7ca4ac9f88e098f6fe4e4e112eeb05ccb9671", null ]
+    ] ],
+    [ "Component", "class_component.html#ad3c10c2f196c925002d107fbcfaa05f5", null ],
+    [ "ComputeOutputStates", "class_component.html#aa0edbbc890108c38280fbb863f0c4020", null ],
+    [ "CountInputsOutputs", "class_component.html#a830bde2d6f3125cd9dca6c530536b897", null ],
+    [ "FlushComponent", "class_component.html#ae7a5236530453ee860ed20c06642eefc", null ],
+    [ "GetColorFromType", "class_component.html#a370ee9fe196a7dd711494109eb152765", null ],
+    [ "Move", "class_component.html#aade40cb001357d8b3671ec39d09bdce6", null ],
+    [ "SetCompGraphics", "class_component.html#ac4875005b4ae17bb45a361bc5e612a5f", null ],
+    [ "SetCorrectGateType", "class_component.html#adbeb1738c7006a7d8bfbb1e80ecf75a1", null ],
+    [ "SetGateProperties", "class_component.html#a90d808ab14f0757a2fd05b05638d5e85", null ],
+    [ "UpdateCompGraphics", "class_component.html#a1332d2fe5ac89a8de2afff1aa00d6b95", null ],
+    [ "boolExpression", "class_component.html#ab850d9012c34208dc7bd69d495a18b87", null ],
+    [ "color", "class_component.html#ab556d5f46d1fe11991c63edae1ac4d3e", null ],
+    [ "compCollider", "class_component.html#a0547f1d431e2dfde80ea8bf2bd8f0206", null ],
+    [ "compName", "class_component.html#a9d4d537cc0c47ea3cef2b2bacfb6888a", null ],
+    [ "held", "class_component.html#acc9f6e93d2dfbc0c82a63a1e53587410", null ],
+    [ "heldPoint", "class_component.html#a4e37217fad2e41afdf2e3d572526c79f", null ],
+    [ "inputs", "class_component.html#a3dee061462a221ff2cc647b6337717e4", null ],
+    [ "ios", "class_component.html#a67d90d70e1e4196cead4233425de3a21", null ],
+    [ "outputs", "class_component.html#a8c30018257e7146f42278f63c7741c89", null ],
+    [ "shapeRenderer", "class_component.html#ac58ca10a55b52f5d7e004a1affa44a02", null ],
+    [ "truthTable", "class_component.html#ae61a20c3310ef05f2cddb6b5cd17f5f1", null ],
+    [ "truthTableDone", "class_component.html#aba908aa498621857d64bc9cf4ec6f46c", null ],
+    [ "type", "class_component.html#aaa5b456d68fc876f2cb1d8f18ed09a16", null ]
+];
